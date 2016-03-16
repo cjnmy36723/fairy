@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+    <a href="/account/login">login</a>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <script>
+        function MoreLoad() {
+            alert(1);
+        }
+        $(window).scroll(function () {
+            var scrollTop = $(this).scrollTop();
+            var scrollHeight = $(document).height();
+            var windowHeight = $(this).height();
+            if (scrollTop + windowHeight >= scrollHeight) {
+                MoreLoad();
+            }
+        });
+    </script>
+{% endblock %}
