@@ -13,7 +13,7 @@ login_manager = LoginManager()
 这里的参数格式是：蓝图名称.函数名
 这里是指定了当用户未登录的时候，进入需要登录才能进入的页面时，会自动跳转到的页面。
 """
-login_manager.login_view = "user.login"
+login_manager.login_view = "account.login"
 
 
 def create_app(config_filename=None):

@@ -1,4 +1,6 @@
 # config=utf-8
+from flask import g
+from flask_login import current_user
 from fairybook import create_app
 from fairybook.modules.home.views import homeRoute
 from fairybook.modules.users.logins import loginRoute
@@ -20,6 +22,7 @@ def before_request():
     Returns:
 
     """
+    g.user = current_user
     pass
 
 for module in DEFAULT_MODULES:

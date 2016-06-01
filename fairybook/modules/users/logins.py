@@ -1,5 +1,5 @@
 # config=utf-8
-from flask import Blueprint, request, redirect, url_for, render_template, flash
+from flask import Blueprint, request, redirect, url_for, render_template, flash, g
 from flask_login import login_user, logout_user
 from fairybook import login_manager
 from fairybook.common import db
@@ -7,6 +7,7 @@ from fairybook.common.encrypt import md5
 from fairybook.modules.users.models.users import User
 from fairybook.modules.users.forms.login import LoginForm
 from fairybook.modules.users.forms.register import RegisterForm
+import datetime
 
 loginRoute = Blueprint('account', __name__, url_prefix='/account', template_folder='templates')
 
@@ -42,6 +43,7 @@ def register():
         user.accountNumber = form.accountNumber.data
         user.password = md5(form.password.data)
         user.name = form.name.data
+        user.created = datetime.datetime.now()
 
         db.session.add(user)
         db.session.commit()
@@ -63,6 +65,11 @@ def login():
                                  User.password == md5(form.password.data)).first()
 
         if user:
+            db.session.execute('UPDATE py_user SET loginTime = :loginTime WHERE id = :id',
+                               {'id': user.id, 'loginTime': datetime.datetime.now()})
+            db.session.commit()
+
+            g.user = user
             login_user(user)
             return redirect("/")
 

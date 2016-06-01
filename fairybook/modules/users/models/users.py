@@ -16,6 +16,8 @@ class User(db.Model, UserMixin):
     accountNumber = db.Column(db.String(200), unique=True)
     password = db.Column(db.String(50), unique=True)
     name = db.Column(db.String(20), unique=True)
+    loginTime = db.Column(db.DateTime, unique=True)
+    created = db.Column(db.DateTime, unique=True)
 
     __tablename__ = 'py_user'
 
