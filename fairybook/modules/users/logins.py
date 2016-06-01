@@ -26,7 +26,7 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
-@loginRoute.route('/register', methods=['GET', 'POST'])
+@loginRoute.route('/register/', methods=['GET', 'POST'])
 def register():
     form = RegisterForm()
 
@@ -54,7 +54,7 @@ def register():
     return render_template('register.html', form=form)
 
 
-@loginRoute.route('/login', methods=['GET', 'POST'])
+@loginRoute.route('/login/', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
 
@@ -77,7 +77,7 @@ def login():
     return render_template('login.html', form=form)
 
 
-@loginRoute.route('/logout')
+@loginRoute.route('/logout/')
 def logout():
     logout_user()
     return redirect(url_for('.login'))

@@ -10,7 +10,7 @@ userRoute = Blueprint('user', __name__, url_prefix='/user', template_folder='tem
 
 
 @userRoute.route('/')
-@userRoute.route('/<id>')
+@userRoute.route('/<id>/')
 def index(user_id=None):
     """
     搜索并显示指定编号的用户的信息
@@ -26,7 +26,7 @@ def index(user_id=None):
     return render_template('user/index.html', user=user)
 
 
-@userRoute.route('/test')
+@userRoute.route('/test/')
 @login_required
 def test():
     """
