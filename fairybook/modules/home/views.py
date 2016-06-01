@@ -1,6 +1,5 @@
 # config=utf-8
-from flask import Blueprint
-from flask import render_template
+from flask import Blueprint, render_template
 
 homeRoute = Blueprint('home', __name__, url_prefix='/', template_folder='templates')
 

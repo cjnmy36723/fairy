@@ -5,10 +5,12 @@ from fairybook import create_app
 from fairybook.modules.home.views import homeRoute
 from fairybook.modules.users.logins import loginRoute
 from fairybook.modules.users.views import userRoute
+from fairybook.modules.novels.views import novelRoute
 
 DEFAULT_MODULES = [homeRoute,
                    loginRoute,
-                   userRoute]
+                   userRoute,
+                   novelRoute]
 
 
 app = create_app('config.py')

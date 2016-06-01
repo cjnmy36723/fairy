@@ -3,6 +3,7 @@ from flask import Blueprint, request, redirect, url_for, render_template, flash,
 from flask_login import login_user, logout_user
 from fairybook import login_manager
 from fairybook.common import db
+from fairybook.common.data import db_execute
 from fairybook.common.encrypt import md5
 from fairybook.modules.users.models.users import User
 from fairybook.modules.users.forms.login import LoginForm
@@ -65,9 +66,9 @@ def login():
                                  User.password == md5(form.password.data)).first()
 
         if user:
-            db.session.execute('UPDATE py_user SET loginTime = :loginTime WHERE id = :id',
-                               {'id': user.id, 'loginTime': datetime.datetime.now()})
-            db.session.commit()
+            # 更新登录时间
+            db_execute('UPDATE %s SET loginTime = :loginTime WHERE id = :id' % User.__tablename__,
+                       args={'id': user.id, 'loginTime': datetime.datetime.now()})
 
             g.user = user
             login_user(user)
