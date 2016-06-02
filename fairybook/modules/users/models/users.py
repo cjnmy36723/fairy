@@ -1,6 +1,8 @@
 # config=utf-8
+import datetime
 from flask_login import UserMixin
 from fairybook.common import db
+from fairybook.common.data import db_execute
 
 
 class User(db.Model, UserMixin):
@@ -11,6 +13,8 @@ class User(db.Model, UserMixin):
         accountNumber:账号。
         password:密码。
         name:用户昵称。
+        loginTime:登录时间。
+        created:创建时间。
     """
     id = db.Column(db.Integer, primary_key=True)
     accountNumber = db.Column(db.String(200), unique=True)
@@ -19,7 +23,7 @@ class User(db.Model, UserMixin):
     loginTime = db.Column(db.DateTime, unique=True)
     created = db.Column(db.DateTime, unique=True)
 
-    __tablename__ = 'py_user'
+    __tablename__ = 'fb_user'
 
     def __init__(self, user_id=None, account_number=None, password=None, name="anonymous"):
         """
@@ -34,3 +38,19 @@ class User(db.Model, UserMixin):
         self.accountNumber = account_number
         self.password = password
         self.name = name
+        self.loginTime = datetime.datetime.now()
+        self.created = datetime.datetime.now()
+
+    def update_login_time(self):
+        """
+        更新登录时间。
+        """
+        db_execute('UPDATE %s SET loginTime = :loginTime WHERE id = :id' % self.__tablename__,
+                   args={'id': self.id, 'loginTime': datetime.datetime.now()})
+
+    def add(self):
+        """
+        创建新用户。
+        """
+        db.session.add(self)
+        db.session.commit()

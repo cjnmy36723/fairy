@@ -4,6 +4,11 @@
     <style type="text/css"></style>
 {% endblock %}
 {% block content %}
-    pageIndex:{{ page_index }}
+    pageIndex:{{ page_index }}<br />
+    {% for item in items %}
+        {{ item.name }}<br />
+    {% endfor %}
+
+    <br />
     <a href="/">返回</a>
 {% endblock %}

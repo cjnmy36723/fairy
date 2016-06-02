@@ -22,6 +22,9 @@ def db_query(sql, settings=None, echo=None, args=None):
     if echo is None:
         echo = SQLALCHEMY_ECHO
 
+    if args is None:
+        return create_engine(settings, echo=echo).connect().execute(text(sql)).fetchall()
+
     return create_engine(settings, echo=echo).connect().execute(text(sql), args).fetchall()
 
 
@@ -49,7 +52,7 @@ def db_execute(sql, settings=None, echo=None, args=None):
 # 测试代码
 # SELECT * FROM py_user
 # INSERT INTO py_user(name) VALUES('123456')
-# data = db_query("SELECT * FROM py_user")
+# data = db_query("SELECT * FROM fb_user")
 # print(data)
 
 # data = db_execute("INSERT INTO py_user(name) VALUES(:name)", args={'name': '123456'})

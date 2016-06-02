@@ -2,8 +2,6 @@
 from flask import Blueprint, request, redirect, url_for, render_template, flash, g
 from flask_login import login_user, logout_user
 from fairybook import login_manager
-from fairybook.common import db
-from fairybook.common.data import db_execute
 from fairybook.common.encrypt import md5
 from fairybook.modules.users.models.users import User
 from fairybook.modules.users.forms.login import LoginForm
@@ -46,8 +44,7 @@ def register():
         user.name = form.name.data
         user.created = datetime.datetime.now()
 
-        db.session.add(user)
-        db.session.commit()
+        user.add()
 
         return render_template('login.html', form=form)
 
@@ -67,8 +64,7 @@ def login():
 
         if user:
             # 更新登录时间
-            db_execute('UPDATE %s SET loginTime = :loginTime WHERE id = :id' % User.__tablename__,
-                       args={'id': user.id, 'loginTime': datetime.datetime.now()})
+            user.update_login_time()
 
             g.user = user
             login_user(user)
