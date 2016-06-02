@@ -6,7 +6,8 @@
 {% block content %}
     pageIndex:{{ page_index }}<br />
     {% for item in items %}
-        {{ item.name }}<br />
+        <a href="/book/detail/{{ item.id }}">{{ item.name }}</a>
+        <br />
     {% endfor %}
 
     <br />

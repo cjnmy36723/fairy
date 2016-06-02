@@ -2,7 +2,7 @@
 import datetime
 from flask_login import UserMixin
 from fairybook.common import db
-from fairybook.common.data import db_query
+from fairybook.common.data import db_query, db_query_first
 
 
 class Book(db.Model, UserMixin):
@@ -59,5 +59,21 @@ def get_book_list(page_index, page_size=10):
 
     """
     start_number = (page_index - 1) * page_size
-    sql = 'SELECT * FROM %s ORDER BY id DESC LIMIT %s, %s' % ('fb_book', start_number, page_size)
+
+    sql = 'SELECT id, name, image, hit, recommend, updateTime, created FROM %s ORDER BY id DESC LIMIT %s, %s' % (
+        Book.__tablename__, start_number, page_size)
+
     return db_query(sql)
+
+
+def get_book(book_id):
+    """
+    获得作品详细信息。
+    Args:
+        book_id: 作品编号。
+    Returns:
+        作品的详细信息。
+    """
+    # return Book.query.filter(Book.id == book_id).first()
+    sql = 'SELECT * FROM %s WHERE id = :id' % Book.__tablename__
+    return db_query_first(sql, args={'id': book_id})

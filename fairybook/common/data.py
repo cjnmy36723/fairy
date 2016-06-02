@@ -4,9 +4,26 @@ from sqlalchemy.sql import text
 from fairybook.config import SQLALCHEMY_DATABASE_URI, SQLALCHEMY_ECHO
 
 
+def db_query_first(sql, settings=None, echo=None, args=None):
+    """
+    获得单条记录。
+    Args:
+        sql: SQL 语句
+        settings: 数据库连接字符串
+        echo: 是否输出 SQL 语句
+        args: SQL 参数
+
+    Returns:
+
+    """
+    items = db_query(sql, settings, echo, args)
+    if len(items) > 0:
+        return items[0];
+
+
 def db_query(sql, settings=None, echo=None, args=None):
     """
-    执行增删改 SQL 语句
+    获得多条记录的数组。
     Args:
         sql: SQL 语句
         settings: 数据库连接字符串

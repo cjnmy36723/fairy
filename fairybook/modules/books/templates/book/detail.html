@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}python flask detail page{% endblock %}
+{% block head %}
+    <style type="text/css"></style>
+{% endblock %}
+{% block content %}
+    {% if item %}
+        {{ item.id }}<br />
+        {{ item.name }}<br />
+        {{ item.description }}<br />
+        {{ item.image }}<br />
+        {{ item.hit }}<br />
+        {{ item.recommend }}<br />
+    {% endif %}
+    <a href="/book/list">返回</a>
+{% endblock %}
