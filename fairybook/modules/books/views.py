@@ -49,6 +49,7 @@ def book_detail(book_id=None):
     """
     item = None
 
+    # 判断 book_id 是否是数字
     if book_id.isdigit():
         item = get_book(book_id)
 

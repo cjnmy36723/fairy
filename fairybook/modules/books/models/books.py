@@ -54,16 +54,12 @@ def get_book_list(page_index, page_size=10):
     Args:
         page_index: 页码。
         page_size: 页大小。
-
     Returns:
-
+        作品信息分页集合。
     """
     start_number = (page_index - 1) * page_size
 
-    sql = 'SELECT id, name, image, hit, recommend, updateTime, created FROM %s ORDER BY id DESC LIMIT %s, %s' % (
-        Book.__tablename__, start_number, page_size)
-
-    return db_query(sql)
+    return db_query('SELECT * FROM %s ORDER BY id DESC LIMIT %s, %s' % (Book.__tablename__, start_number, page_size))
 
 
 def get_book(book_id):
@@ -75,5 +71,4 @@ def get_book(book_id):
         作品的详细信息。
     """
     # return Book.query.filter(Book.id == book_id).first()
-    sql = 'SELECT * FROM %s WHERE id = :id' % Book.__tablename__
-    return db_query_first(sql, args={'id': book_id})
+    return db_query_first('SELECT * FROM %s WHERE id = :id' % Book.__tablename__, args={'id': book_id})
