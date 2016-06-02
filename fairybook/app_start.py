@@ -5,11 +5,13 @@ from fairybook import create_app
 from fairybook.modules.home.views import homeRoute
 from fairybook.modules.users.logins import loginRoute
 from fairybook.modules.users.views import userRoute
+from fairybook.modules.books.views import bookRoute
 from fairybook.modules.novels.views import novelRoute
 
 DEFAULT_MODULES = [homeRoute,
                    loginRoute,
                    userRoute,
+                   bookRoute,
                    novelRoute]
 
 
