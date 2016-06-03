@@ -1,7 +1,7 @@
 # config=utf-8
 from flask import Blueprint, render_template
 from fairybook.modules.books.models.books import get_book_list, get_book
-from fairybook.modules.books.models.role import get_roles_by_book_id
+from fairybook.modules.books.models.roles import get_roles_by_book_id
 
 # 这里的 templates 的路径是该配置所在目录下的 templates 目录。
 bookRoute = Blueprint('book', __name__, url_prefix='/book', template_folder='templates')
