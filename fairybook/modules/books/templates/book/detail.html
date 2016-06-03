@@ -4,13 +4,20 @@
     <style type="text/css"></style>
 {% endblock %}
 {% block content %}
-    {% if item %}
-        {{ item.id }}<br />
-        {{ item.name }}<br />
-        {{ item.description }}<br />
-        {{ item.image }}<br />
-        {{ item.hit }}<br />
-        {{ item.recommend }}<br />
+    {% if book %}
+        编号：{{ book.id }}<br />
+        名称：{{ book.name }}<br />
+        描述：{{ book.description }}<br />
+        封面图：{{ book.image }}<br />
+        点击数：{{ book.hit }}<br />
+        推荐数：{{ book.recommend }}<br />
+        <p>
+        {% for role in roles %}
+            名字：{{ role.name }}<br>
+            形象：<br><img src="{{ role.image }}" width="200" /><br>
+            描述：{{ role.description }}<br />
+        {% endfor %}
+        </p>
     {% endif %}
     <a href="/book/list">返回</a>
 {% endblock %}

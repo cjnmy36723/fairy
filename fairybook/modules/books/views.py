@@ -1,6 +1,7 @@
 # config=utf-8
 from flask import Blueprint, render_template
 from fairybook.modules.books.models.books import get_book_list, get_book
+from fairybook.modules.books.models.role import get_roles_by_book_id
 
 # 这里的 templates 的路径是该配置所在目录下的 templates 目录。
 bookRoute = Blueprint('book', __name__, url_prefix='/book', template_folder='templates')
@@ -47,10 +48,14 @@ def book_detail(book_id=None):
     Returns:
         视图
     """
-    item = None
+    book = None
+    roles = None
 
     # 判断 book_id 是否是数字
     if book_id.isdigit():
-        item = get_book(book_id)
+        book = get_book(book_id)
 
-    return render_template('book/detail.html', item=item)
+    if book:
+        roles = get_roles_by_book_id(book_id)
+
+    return render_template('book/detail.html', book=book, roles=roles)
