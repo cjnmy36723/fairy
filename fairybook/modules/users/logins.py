@@ -1,12 +1,14 @@
 # config=utf-8
+import datetime
+
 from flask import Blueprint, request, redirect, url_for, render_template, flash, g
 from flask_login import login_user, logout_user
+
 from fairybook import login_manager
 from fairybook.common.encrypt import md5
-from fairybook.modules.users.models.users import User
+from fairybook.models.users.users import User
 from fairybook.modules.users.forms.login import LoginForm
 from fairybook.modules.users.forms.register import RegisterForm
-import datetime
 
 loginRoute = Blueprint('account', __name__, url_prefix='/account', template_folder='templates')
 

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}python flask detail page{% endblock %}
+{% block head %}
+    <style type="text/css"></style>
+{% endblock %}
+{% block content %}
+    <a href="/novel/index/{{ content.novel_id }}">返回目录</a><br />
+    {% if content %}
+        编号：{{ content.id }}<br />
+        标题：{{ content.title }}<br />
+        内容：{{ content.description.replace('\r\n', '<br />')| safe }}<br />
+        点击数：{{ content.hit }}<br />
+        推荐数：{{ content.recommend }}<br />
+        创建时间：{{ content.created }}<br />
+    {% endif %}
+    <a href="/novel/index/{{ content.novel_id }}">返回目录</a>
+{% endblock %}

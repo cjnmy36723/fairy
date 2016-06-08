@@ -2,8 +2,7 @@
 from flask import Blueprint, render_template
 from flask_login import current_user, login_required
 
-from fairybook.modules.users.models.users import User
-
+from fairybook.models.users.users import User
 
 # 这里的 templates 的路径是该配置所在目录下的 templates 目录。
 userRoute = Blueprint('user', __name__, url_prefix='/user', template_folder='templates')

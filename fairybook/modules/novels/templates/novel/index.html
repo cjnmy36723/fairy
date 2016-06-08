@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}python flask novel list page{% endblock %}
+{% block head %}
+    <style type="text/css"></style>
+{% endblock %}
+{% block content %}
+    {% if novel %}
+        编号：{{ novel.id }}<br />
+        名称：{{ novel.name }}<br />
+        描述：{{ novel.description }}<br />
+        封面图：{{ novel.image }}<br />
+        点击数：{{ novel.hit }}<br />
+        推荐数：{{ novel.recommend }}<br />
+    {% endif %}
+    {% for item in items %}
+        <a href="/novel/read/{{ item.id }}">{{ item.title }}</a>
+        {{ item.created }}
+        <br />
+            <a href="/book/detail/{{ novel.book_id }}">返回作品信息</a>
+    {% endfor %}
+
+    <br />
+    <a href="/">返回</a>
+{% endblock %}
