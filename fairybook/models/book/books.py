@@ -12,6 +12,7 @@ class Book(db.Model, UserMixin):
         id:作品编号。
         name:名称。
         description:描述。
+        keyword:关键字。
         image:封面图。
         hit:点击数。
         recommend:推荐数。
@@ -21,6 +22,7 @@ class Book(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(20), unique=True)
     description = db.Column(db.Text, unique=True)
+    keyword = db.Column(db.String(100), unique=True)
     image = db.Column(db.String(100), unique=True)
     hit = db.Column(db.Integer, unique=True)
     recommend = db.Column(db.Integer, unique=True)
@@ -29,18 +31,20 @@ class Book(db.Model, UserMixin):
 
     __tablename__ = 'fb_book'
 
-    def __init__(self, book_id=None, name=None, description=None, image=None):
+    def __init__(self, book_id=None, name=None, description=None, keyword=None, image=None):
         """
         初始化作品信息。
         Args:
             book_id (int): 作品编号
             name (string):名称
             description (string):描述
+            keyword (string):关键字
             image (string):封面图
         """
         self.id = book_id
         self.name = name
         self.description = description
+        self.keyword = keyword
         self.image = image
         self.hit = 0
         self.recommend = 0
