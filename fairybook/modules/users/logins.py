@@ -56,6 +56,7 @@ def register():
 @loginRoute.route('/login/', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
+    error_message = None
 
     if request.method == 'POST':
         if not form.validate_on_submit():
@@ -72,7 +73,9 @@ def login():
             login_user(user)
             return redirect("/")
 
-    return render_template('login.html', form=form)
+        error_message = '用户名或密码错误'
+
+    return render_template('login.html', error_message=error_message, form=form)
 
 
 @loginRoute.route('/logout/')

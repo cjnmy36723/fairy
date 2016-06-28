@@ -9,16 +9,6 @@ from fairybook.models.novels.novel import get_novels
 bookRoute = Blueprint('book', __name__, url_prefix='/book', template_folder='templates')
 
 
-@bookRoute.route('/')
-@bookRoute.route('/index/')
-def index():
-    """
-    首页
-    """
-
-    return render_template('book/index.html')
-
-
 @bookRoute.route('/list/')
 @bookRoute.route('/list/<page_index>/')
 def book_list(page_index="1"):

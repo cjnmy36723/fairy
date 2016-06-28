@@ -5,17 +5,11 @@
 {% endblock %}
 {% block content %}
     <form action="{{ url_for('account.login') }}" method="post">
-        {% if form.errors %}
-            <ul>
-                {% for name, errors in form.errors.items() %}
-                    {% for error in errors %}
-                        <li>{{ error }}</li>
-                    {% endfor %}
-                {% endfor %}
-            </ul>
+        {% if error_message %}
+            <label>{{ error_message }}</label><br />
         {% endif %}
-        账号：{{ form.accountNumber(size=20) }}<label>{{ form.accountNumber.errors[0] }}</label><br/>
-        密码：<input name="password" type="password"/><br/>
+        账号：{{ form.accountNumber(size=20, maxlength=200) }}<label>{{ form.accountNumber.errors[0] }}</label><br/>
+        密码：<input name="password" type="password"/><label>{{ form.password.errors[0] }}</label><br/>
         {{ form.hidden_tag() }}
         <button type="submit">登录</button>
     </form>
