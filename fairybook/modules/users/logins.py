@@ -73,7 +73,7 @@ def login():
             login_user(user)
             return redirect("/")
 
-        error_message = '用户名或密码错误'
+        error_message = '账号或密码错误'
 
     return render_template('login.html', error_message=error_message, form=form)
 
