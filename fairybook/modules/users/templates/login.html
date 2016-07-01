@@ -5,8 +5,12 @@
 {% endblock %}
 {% block content %}
     <form action="{{ url_for('account.login') }}" method="post">
-        {% if error_message %}
-            <label>{{ error_message }}</label><br />
+        {% if get_flashed_messages() %}
+            <ul>
+                {% for message in get_flashed_messages() %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
         {% endif %}
         账号：{{ form.accountNumber(size=20, maxlength=200) }}<label>{{ form.accountNumber.errors[0] }}</label><br/>
         密码：<input name="password" type="password"/><label>{{ form.password.errors[0] }}</label><br/>

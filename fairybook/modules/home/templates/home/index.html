@@ -1,10 +1,29 @@
 {% extends "base.html" %}
+{% block head %}
+    <link href="/static/css/home/index.css" rel="stylesheet"/>
+{% endblock %}
 {% block content %}
-    {% if g.user and g.user.is_authenticated %}
-        {{ g.user.name }} | <a href="/account/logout">logout</a>
-    {% else %}
-        <a href="/account/login">login</a>
-    {% endif %}
-    <br>
-    <a href="/book/list">作品</a>
+    <div id="container">
+        <div class="container-fluid">
+            <header class="header">
+                <nav class="nav">
+                    <a href="/book/list">作品</a>
+                </nav>
+                <div class="login">
+                    {% if g.user and g.user.is_authenticated %}
+                        欢迎您，<a href="/user">{{ g.user.name }}</a> | <a href="/account/logout">注销</a>
+                    {% else %}
+                        <a href="/account/login">登录</a>
+                    {% endif %}
+                </div>
+            </header>
+            <div class="content">
+                <h2 id="title">永恒书屋</h2>
+                <p>
+                    方便地记录照片、文字、音乐、视频，适用于iPhone、iPad和Android移动客户端及PC端，
+                    让你随时随地的记录与分享。
+                </p>
+            </div>
+        </div>
+    </div>
 {% endblock %}
