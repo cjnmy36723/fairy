@@ -5,26 +5,26 @@
 {% endblock %}
 {% block content %}
     {% if book %}
-        编号：{{ book.id }}<br />
-        名称：{{ book.name }}<br />
-        描述：{{ book.description }}<br />
-        封面图：{{ book.image }}<br />
-        点击数：{{ book.hit }}<br />
-        推荐数：{{ book.recommend }}<br />
+        编号：{{ book.id }}<br/>
+        名称：{{ book.name }}<br/>
+        描述：{{ book.description }}<br/>
+        封面图：{{ book.image }}<br/>
+        点击数：{{ book.hit }}<br/>
+        推荐数：{{ book.recommend }}<br/>
         <p>
-        {% for role in roles %}
-            名字：{{ role.name }}<br>
-            形象：<br><img src="{{ role.image }}" width="200" /><br>
-            描述：{{ role.description }}<br />
-        {% endfor %}
+            {% for role in roles %}
+                名字：{{ role.name }}<br>
+                形象：<br><img src="{{ role.image }}" width="200"/><br>
+                描述：{{ role.description }}<br/>
+            {% endfor %}
         </p>
         <p>
-        {% for novel in novels %}
-            小说名称：<a href="/novel/index/{{ novel.id }}">{{ novel.name }}</a><br>
-            {# 这里的“| safe”表示禁止对 novel.description 中的内容进行 HTML 转义 #}
-            介绍：{{ novel.description.replace('\r\n', '<br />')| safe }}
-            <br />
-        {% endfor %}
+            {% for novel in novels %}
+                小说名称：<a href="/novel/index/{{ novel.id }}">{{ novel.name }}</a><br>
+                {# 这里的“| safe”表示禁止对 novel.description 中的内容进行 HTML 转义 #}
+                介绍：{{ novel.description.replace('\r\n', '<br />')| safe }}
+                <br/>
+            {% endfor %}
         </p>
     {% endif %}
     <a href="/book/list">返回</a>

@@ -1,29 +1,45 @@
 {% extends "base.html" %}
+{% block title %}永恒书屋{% endblock %}
 {% block head %}
     <link href="/static/css/home/index.css" rel="stylesheet"/>
 {% endblock %}
 {% block content %}
-    <div id="container">
-        <div class="container-fluid">
-            <header class="header">
-                <nav class="nav">
-                    <a href="/book/list">作品</a>
-                </nav>
-                <div class="login">
-                    {% if g.user and g.user.is_authenticated %}
-                        欢迎您，<a href="/user">{{ g.user.name }}</a> | <a href="/account/logout">注销</a>
-                    {% else %}
-                        <a href="/account/login">登录</a>
-                    {% endif %}
-                </div>
-            </header>
-            <div class="content">
-                <h2 id="title">永恒书屋</h2>
-                <p>
-                    方便地记录照片、文字、音乐、视频，适用于iPhone、iPad和Android移动客户端及PC端，
-                    让你随时随地的记录与分享。
-                </p>
-            </div>
+    <header class="container-fluid">
+        <nav class="nav">
+            <a href="/book/list">作品</a>
+        </nav>
+        <div class="login">
+            {% if g.user and g.user.is_authenticated %}
+                <ul>
+                    <li><span>欢迎您，</span><a href="/user">{{ g.user.name }}</a></li>
+                    <li>|</li>
+                    <li><a href="/account/logout">注销</a></li>
+                </ul>
+            {% else %}
+                <a href="/account/login">登录</a>
+            {% endif %}
         </div>
-    </div>
+        <div class="content">
+            <h2 id="title">永恒书屋</h2>
+            <p>
+                方便地记录照片、文字、音乐、视频，适用于iPhone、iPad和Android移动客户端及PC端，
+                让你随时随地的记录与分享。
+            </p>
+        </div>
+        <div class="container">
+            <form id="search-form" class="form-horizontal" role="search">
+                <div class="col-sm-12">
+                    <input type="text" class="form-control search clearable" placeholder="搜索开源库，例如：jquery" aria-describedby="inputSuccess2Status">
+                    <span id="inputSuccess2Status" class="sr-only">(success)</span>
+                </div>
+                <!--
+                <div class="col-sm-2">
+                     <button type="submit" class="btn btn-default" aria-label="Left Align">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </button>
+                </div>-->
+
+            </form>
+        </div>
+    </header>
 {% endblock %}
