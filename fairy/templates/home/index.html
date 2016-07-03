@@ -5,21 +5,23 @@
 {% endblock %}
 {% block content %}
     <header>
-        <nav class="container-fluid">
-            <div class="nav-left">
-                <a href="/">首页</a>　
-                <a href="/book/list">作品</a>
-            </div>
-            <div class="nav-right">
-                {% if g.user and g.user.is_authenticated %}
-                    <ul>
-                        <li><span>欢迎您，</span><a href="/user">{{ g.user.name }}</a></li>
-                        <li>|</li>
-                        <li><a href="/account/logout">注销</a></li>
-                    </ul>
-                {% else %}
-                    <a href="/account/login">登录</a>
-                {% endif %}
+        <nav>
+            <div class="container">
+                <div class="nav-left">
+                    <a href="/">首页</a>　
+                    <a href="/book/list">作品</a>
+                </div>
+                <div class="nav-right">
+                    {% if g.user and g.user.is_authenticated %}
+                        <ul>
+                            <li><span>欢迎您，</span><a href="/user">{{ g.user.name }}</a></li>
+                            <li>|</li>
+                            <li><a href="/account/logout">注销</a></li>
+                        </ul>
+                    {% else %}
+                        <a href="/account/login">登录</a>
+                    {% endif %}
+                </div>
             </div>
         </nav>
         <div class="content">
