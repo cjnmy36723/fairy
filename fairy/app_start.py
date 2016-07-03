@@ -1,19 +1,18 @@
 # config=utf-8
 from flask import g
 from flask_login import current_user
-from fairybook import create_app
-from fairybook.modules.home.views import homeRoute
-from fairybook.modules.users.logins import loginRoute
-from fairybook.modules.users.views import userRoute
-from fairybook.modules.books.views import bookRoute
-from fairybook.modules.novels.views import novelRoute
+from fairy import create_app
+from fairy.controllers.home import homeRoute
+from fairy.controllers.account import accountRoute
+from fairy.controllers.user import userRoute
+from fairy.controllers.book import bookRoute
+from fairy.controllers.novel import novelRoute
 
 DEFAULT_MODULES = [homeRoute,
-                   loginRoute,
+                   accountRoute,
                    userRoute,
                    bookRoute,
                    novelRoute]
-
 
 app = create_app('config.py')
 
@@ -28,6 +27,7 @@ def before_request():
     """
     g.user = current_user
     pass
+
 
 for module in DEFAULT_MODULES:
     app.register_blueprint(module)

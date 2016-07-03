@@ -1,7 +1,8 @@
 /.idea
-/fairybook/__pycache__
-__pycache__
-/fairybook/modules/home/__pycache__
-/fairybook/modules/users/__pycache__
-/fairybook/modules/users/forms/__pycache__
-/fairybook/modules/users/models/__pycache__
+/fairy/__pycache__
+
+/fairy/common/__pycache__
+/fairy/controllers/__pycache__
+/fairy/form/__pycache__
+
+/fairy/model/__pycache__

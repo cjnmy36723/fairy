@@ -1,8 +1,8 @@
 # config=utf-8
 import datetime
 from flask_login import UserMixin
-from fairybook.common import db
-from fairybook.common.data import db_execute
+from fairy.common import db
+from fairy.common.data import db_execute
 
 
 class User(db.Model, UserMixin):

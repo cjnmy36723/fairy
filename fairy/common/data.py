@@ -1,7 +1,7 @@
 # config=utf-8
 from sqlalchemy import create_engine
 from sqlalchemy.sql import text
-from fairybook.config import SQLALCHEMY_DATABASE_URI, SQLALCHEMY_ECHO
+from fairy.config import SQLALCHEMY_DATABASE_URI, SQLALCHEMY_ECHO
 
 
 def db_query_first(sql, settings=None, echo=None, args=None):

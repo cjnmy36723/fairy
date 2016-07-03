@@ -1,7 +1,7 @@
 # config=utf-8
 from flask import Flask
 from flask_login import LoginManager
-from fairybook.common import db
+from fairy.common import db
 
 
 """

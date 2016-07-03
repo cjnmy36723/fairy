@@ -1,9 +1,8 @@
 # config=utf-8
-from fairybook.models.novels.content import get_novel_content_by_id
-from fairybook.models.novels.list import get_novel_list_by_novel_id
 from flask import Blueprint, render_template
-
-from fairybook.models.novels.novel import get_novel
+from fairy.model.novel_content import get_novel_content_by_id
+from fairy.model.novel_list import get_novel_list_by_novel_id
+from fairy.model.novel import get_novel
 
 # 这里的 templates 的路径是该配置所在目录下的 templates 目录。
 novelRoute = Blueprint('novel', __name__, url_prefix='/novel', template_folder='templates')
