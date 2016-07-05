@@ -8,7 +8,9 @@
         <nav>
             <div class="container">
                 <div class="nav-left">
+                    <span class="glyphicon glyphicon-home font-blue" aria-hidden="true"></span>
                     <a href="/">首页</a>　
+                    <span class="glyphicon glyphicon-book font-red" aria-hidden="true"></span>
                     <a href="/book/list">作品</a>
                 </div>
                 <div class="nav-right">
@@ -19,7 +21,11 @@
                             <li><a href="/account/logout">注销</a></li>
                         </ul>
                     {% else %}
+                        <span class="glyphicon glyphicon-user font-yellow" aria-hidden="true"></span>
                         <a href="/account/login">登录</a>
+                        　|　
+                        <span class="glyphicon glyphicon-pencil font-fuchsia" aria-hidden="true"></span>
+                        <a href="/account/register">注册</a>
                     {% endif %}
                 </div>
             </div>
@@ -50,4 +56,125 @@
             </div>
         </div>
     </header>
+    <div id="main">
+        <div>
+            <div id="new-title" class="container">
+                <h2>最新连载</h2>
+                <p>最新入库的作品</p>
+            </div>
+            <div id="new-content" class="container-fluid">
+                <div class="row">
+                    <div class=".col-md-6 .col-md-offset-3">
+                        <div class="col-xs-6 col-md-2">
+                            <a href="#" class="thumbnail">
+                                <img src="/static/upload/img/01.jpg" alt="...">
+                            </a>
+                            <div class="caption">
+                                <p title="Re：从零开始的异世界生活">Re：从零开始的异...</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-2">
+                            <a href="#" class="thumbnail">
+                                <img src="/static/upload/img/02.jpg" alt="...">
+                            </a>
+                            <div class="caption">
+                                <p title="约会大作战">约会大作战</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-2">
+                            <a href="#" class="thumbnail">
+                                <img src="/static/upload/img/03.jpg" alt="...">
+                            </a>
+                            <div class="caption">
+                                <p title="英雄传说：碧之轨迹">碧之轨迹</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-2">
+                            <a href="#" class="thumbnail">
+                                <img src="/static/upload/img/04.jpg" alt="...">
+                            </a>
+                            <div class="caption">
+                                <p title="英雄传说：空之轨迹">空之轨迹</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-2">
+                            <a href="#" class="thumbnail">
+                                <img src="/static/upload/img/05.jpg" alt="...">
+                            </a>
+                            <div class="caption">
+                                <p title="英雄传说：闪之轨迹">闪之轨迹</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-2">
+                            <a href="#" class="thumbnail">
+                                <img src="/static/upload/img/06.jpg" alt="...">
+                            </a>
+                            <div class="caption">
+                                <p title="伊苏·起源">伊苏·起源</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
 {% endblock %}

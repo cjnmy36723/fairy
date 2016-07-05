@@ -1,7 +1,7 @@
 ﻿body, h2 {
     font-family: "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", tahoma, arial, simsun, "宋体";
     color: #69606b;
-    font-size:14px;
+    font-size: 14px;
 }
 
 a {
@@ -10,4 +10,20 @@ a {
 
 #container {
     /*display: none;*/
+}
+
+.font-blue {
+    color: #2D93CA;
+}
+
+.font-red {
+    color: red;
+}
+
+.font-yellow {
+    color: #FF9900;
+}
+
+.font-fuchsia {
+    color: fuchsia;
 }
