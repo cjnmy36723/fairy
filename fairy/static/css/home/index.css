@@ -2,7 +2,7 @@
     margin: 0;
     width: 100%;
     height: 395px;
-    background-color: #333;/*绿色#27AE60，蓝色#2D93CA*/
+    background-color: #333; /*绿色#27AE60，蓝色#2D93CA*/
     /*background: url("../../img/background-header.jpg") 0px -400px;*/
     overflow: hidden;
     position: relative;
@@ -26,7 +26,6 @@ header p {
     /*text-shadow: 1px 1px 5px #000;*/
 }
 
-
 nav {
     /*width: 100%;*/
     height: 40px;
@@ -36,8 +35,9 @@ nav {
     background-color: white;
     z-index: 1;
     /*color: white;*/
-    color:#000;
+    color: #000;
 }
+
 #search-form {
     margin-top: 30px;
 }
@@ -72,21 +72,26 @@ nav ul li {
     margin-left: 10px;
 }
 
-#main{
+#main {
     margin-top: 20px;
 }
-#main h2{
+
+#new-title h2 {
     font-size: 2em;
-
 }
 
-#new-content p{
-        text-align: center;
+#new-title h2 span {
+    color: #4cae4c;
+    font-size: 0.7em;
 }
 
-#new-content{
+#new-title h2 small {
+    font-size: 12px;
 }
 
-#new-content img{
-    /*height: 165px;*/
+#new-content p {
+    text-align: center;
+    margin-top: -10px;
+    height: 21px;
+    overflow: hidden;
 }
