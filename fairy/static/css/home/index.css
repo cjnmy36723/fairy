@@ -147,6 +147,11 @@ nav ul li img {
     overflow: hidden;
 }
 
+.book-list-content-icon {
+    margin-top: 3px;
+    margin-right: 2px;
+}
+
 /*************最新连载*************/
 #week {
     margin-top: 60px;
