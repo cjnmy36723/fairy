@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}永恒书屋{% endblock %}
 {% block head %}
-    <link href="/static/css/home/index.css?v=2.8" rel="stylesheet"/>
+    <link href="/static/css/home/index.css?v=3.10" rel="stylesheet"/>
 {% endblock %}
 {% block content %}
     <header>
@@ -17,7 +17,7 @@
                     {% if g.user and g.user.is_authenticated %}
                         <ul>
                             <li> <img src="/static/upload/img/01.jpg" alt="..." class="img-circle"></li>
-                            <li><span>欢迎您，</span><a href="/user">{{ g.user.name }}</a></li>
+                            <li><a href="/user">{{ g.user.name }}</a></li>
                             <li>|</li>
                             <li><a href="/account/logout">注销</a></li>
                         </ul>
