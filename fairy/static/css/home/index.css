@@ -1,9 +1,9 @@
 ﻿header {
     margin: 0;
     width: 100%;
-    height: 395px;
+    height: 400px;
     /*background-color: #333;*/ /*绿色#27AE60，蓝色#2D93CA*/
-    background: url("../../img/background-header.jpg") 0px -200px;
+    background: url("../../img/background-header.jpg") 0px -180px;
     overflow: hidden;
     position: relative;
 }
@@ -14,7 +14,7 @@
 }
 
 header h2 {
-    padding: 52px 0 20px;
+    padding: 80px 0 20px;
     font-size: 3em;
     font-weight: normal;
     letter-spacing: 2px;
@@ -84,13 +84,14 @@ nav ul li img {
 }
 
 #main {
-    margin-top: 20px;
+    margin-top: 19px;
 }
 
 #main hr {
     margin-top: 0px;
     border-bottom: solid 1px #aaa;
 }
+
 /*************最新连载*************/
 #new-title h2 {
     font-size: 2em;
@@ -105,33 +106,50 @@ nav ul li img {
     font-size: 14px;
 }
 
+#new-title h2 a {
+    color: red;
+    font-size: 14px;
+}
+
 #new-content {
-     margin-top: 10px;
-}
-
-#new-content h3 {
-    margin-top: -10px;
-    font-size: 1.3em;
-}
-
-#new-content p {
-    font-size: 12px;
-    text-align: center;
-    height: 34px;
-    overflow: hidden;
+    margin-top: 10px;
+    border: 0;
 }
 
 .new-content-inner {
     margin-top: 10px;
 }
 
-.book-list-title {
-    height: 22px;
+.new-content-inner img {
+    width: 100%;
+}
+
+.book-list-title-name {
+    height: 20px;
+    line-height: 20px;
     overflow: hidden;
 }
+
+.book-list-title {
+    font-size: 12px;
+    color: #000;
+    height: 20px;
+    line-height: 20px;
+    overflow: hidden;
+}
+
+.book-list-content {
+    font-size: 12px;
+    color: #999;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
 /*************最新连载*************/
 #week {
-    margin-top: 25px;
+    margin-top: 60px;
     width: 100%;
     height: 600px;
     background-color: #e3e3e3;

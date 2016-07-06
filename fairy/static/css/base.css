@@ -32,3 +32,11 @@ a:hover {
 .font-fuchsia {
     color: fuchsia;
 }
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
