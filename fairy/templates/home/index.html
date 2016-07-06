@@ -16,7 +16,7 @@
                 <div class="nav-right">
                     {% if g.user and g.user.is_authenticated %}
                         <ul>
-                            <li> <img src="/static/upload/img/01.jpg" alt="..." class="img-circle"></li>
+                            <li><img src="/static/upload/img/01.jpg" alt="..." class="img-circle"></li>
                             <li><a href="/user">{{ g.user.name }}</a></li>
                             <li>|</li>
                             <li><a href="/account/logout">注销</a></li>
@@ -44,8 +44,14 @@
                 <form id="search-form" role="search">
                     <div class="form-group">
                         <div class="input-group">
-                            <input type="text" class="form-control" id="input-search" name="search"
-                                   placeholder="搜索作品名称，例如：Re:从零开始的异世界生活">
+                            <span class="input-group-btn" style="width: 105px;">
+                                <select name="SearchType" class="form-control">
+                                    <option>作品名称</option>
+                                    <option>角色名字</option>
+                                </select>
+                            </span>
+                            <input type="text" class="form-control" id="input-search" name="SearchContent"
+                                   placeholder="请输入搜索内容，例如：Re:从零开始的异世界生活">
                             <span class="input-group-btn">
                                 <button type="submit" class="btn btn-default" aria-label="Left Align">
                                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
