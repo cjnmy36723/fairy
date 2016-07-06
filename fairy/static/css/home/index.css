@@ -2,10 +2,15 @@
     margin: 0;
     width: 100%;
     height: 395px;
-    background-color: #333; /*绿色#27AE60，蓝色#2D93CA*/
-    /*background: url("../../img/background-header.jpg") 0px -400px;*/
+    /*background-color: #333;*/ /*绿色#27AE60，蓝色#2D93CA*/
+    background: url("../../img/background-header.jpg") 0px -200px;
     overflow: hidden;
     position: relative;
+}
+
+#inner-header {
+    background-color: rgba(0, 0, 0, 0.3);
+    height: 100%;
 }
 
 header h2 {
@@ -72,7 +77,7 @@ nav ul li {
     margin-left: 10px;
 }
 
-nav ul li img{
+nav ul li img {
     width: 35px;
     height: 35px;
     margin-top: -5px;
@@ -82,6 +87,11 @@ nav ul li img{
     margin-top: 20px;
 }
 
+#main hr {
+    margin-top: 0px;
+    border-bottom: solid 1px #aaa;
+}
+/*************最新连载*************/
 #new-title h2 {
     font-size: 2em;
 }
@@ -92,12 +102,37 @@ nav ul li img{
 }
 
 #new-title h2 small {
-    font-size: 12px;
+    font-size: 14px;
+}
+
+#new-content {
+     margin-top: 10px;
+}
+
+#new-content h3 {
+    margin-top: -10px;
+    font-size: 1.3em;
 }
 
 #new-content p {
+    font-size: 12px;
     text-align: center;
-    margin-top: -10px;
-    height: 21px;
+    height: 34px;
     overflow: hidden;
+}
+
+.new-content-inner {
+    margin-top: 10px;
+}
+
+.book-list-title {
+    height: 22px;
+    overflow: hidden;
+}
+/*************最新连载*************/
+#week {
+    margin-top: 25px;
+    width: 100%;
+    height: 600px;
+    background-color: #e3e3e3;
 }
