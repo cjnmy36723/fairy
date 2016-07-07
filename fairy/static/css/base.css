@@ -13,10 +13,6 @@ a:hover {
     text-decoration: none;
 }
 
-#container {
-    /*display: none;*/
-}
-
 .font-blue {
     color: #2D93CA;
 }
@@ -31,6 +27,10 @@ a:hover {
 
 .font-fuchsia {
     color: fuchsia;
+}
+
+.font-green {
+    color: green;
 }
 
 .float-left {

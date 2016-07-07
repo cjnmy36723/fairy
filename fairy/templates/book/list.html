@@ -4,6 +4,7 @@
     <style type="text/css"></style>
 {% endblock %}
 {% block content %}
+    {% include "nav.html" %}
     pageIndex:{{ page_index }}<br />
     {% for item in items %}
         <a href="/book/detail/{{ item.id }}">{{ item.name }}</a>

@@ -1,82 +1,50 @@
 {% extends "base.html" %}
 {% block title %}永恒书屋{% endblock %}
 {% block head %}
-    <link href="/static/css/home/index.css?v=3.14" rel="stylesheet"/>
+    <link href="/static/css/home/index.css?v=3.15" rel="stylesheet"/>
 {% endblock %}
 {% block content %}
     <header>
-        <div id="inner-header">
-            <nav>
-                <div class="container">
-                    <div class="nav-left">
-                        <span class="glyphicon glyphicon-home font-blue" aria-hidden="true"></span>
-                        <a href="/">首页</a>　
-                        <span class="glyphicon glyphicon-book font-red" aria-hidden="true"></span>
-                        <a href="/book/list">作品</a>
-                        {#<span class="glyphicon glyphicon-menu-hamburger font-red" aria-hidden="true" style="font-size: 1.7em; margin-top: 10px; cursor: pointer;"></span>#}
-                    </div>
-                    <div class="nav-right">
-                        {% if g.user and g.user.is_authenticated %}
-                            <ul>
-                                <li><img src="/static/upload/img/01.jpg" alt="..." class="img-circle"></li>
-                                <li><a href="/user">{{ g.user.name }}</a></li>
-                                <li>|</li>
-                                <li>
-                                    <span class="glyphicon glyphicon-log-out font-fuchsia" aria-hidden="true"></span>
-                                    <a href="/account/logout">注销</a>
-                                </li>
-                            </ul>
-                        {% else %}
-                            <span class="glyphicon glyphicon-user font-yellow" aria-hidden="true"></span>
-                            <a href="/account/login">登录</a>
-                            　|　
-                            <span class="glyphicon glyphicon-pencil font-fuchsia" aria-hidden="true"></span>
-                            <a href="/account/register">注册</a>
-                        {% endif %}
-                    </div>
-                </div>
-            </nav>
-            <div class="content">
-                <h2 id="title">永恒书屋</h2>
-                <p>
-                    方便地记录照片、文字、音乐、视频，适用于iPhone、iPad和Android移动客户端及PC端，
-                    让你随时随地的记录与分享。
-                </p>
-            </div>
-            <div id="search" class="container">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-8">
-                    <form id="search-form" role="search">
-                        <div class="form-group">
-                            <div class="input-group">
-                            <span class="input-group-btn" style="width: 105px;">
-                                <select name="SearchType" class="form-control">
+        {% include "nav.html" %}
+        <div class="content">
+            <h1 id="title">永恒书屋</h1>
+            <p>
+                方便地记录照片、文字、音乐、视频，适用于iPhone、iPad和Android移动客户端及PC端，
+                让你随时随地的记录与分享。
+            </p>
+        </div>
+        <div id="search" class="container">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <form id="search-form" role="search" action="/book/list">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <select name="type" class="form-control">
                                     <option>作品名称</option>
                                     <option>角色名字</option>
                                 </select>
                             </span>
-                                <input type="text" class="form-control" id="input-search" name="SearchContent"
-                                       placeholder="请输入搜索内容，例如：Re:从零开始的异世界生活">
+                            <input type="text" class="form-control" id="input-search" name="keyword"
+                                   placeholder="请输入搜索内容，例如：Re:从零开始的异世界生活">
                             <span class="input-group-btn">
                                 <button type="submit" class="btn btn-default" aria-label="Left Align">
                                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                                 </button>
                             </span>
-                            </div>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     </header>
     <div id="main">
         <div id="new-title" class="container">
-            <h2 class="col-md-5">
-                <span class="glyphicon glyphicon-send" aria-hidden="true"></span> 最新连载
-                <small>最新入库的作品 | <a href="/">更多</a></small>
+            <h2 class="text-center">
+                最新连载
             </h2>
+            <div class="text-center"><a class="font-red" href="/book/list">更多</a></div>
         </div>
-        {#<hr class="container"/>#}
         <div id="new-content" class="container">
             <div class="row">
                 <div class="new-content-inner col-xs-6 col-lg-3">
@@ -154,7 +122,18 @@
             </div>
         </div>
         <div id="week">
-            1
+            <div class="container">
+                <h2>今日放送</h2>
+                <p>
+                    　　うぷぷぷぷぷ～今天是星期四，一共将有7部新番放送！其中漫改、游戏改、原创动画各2部，小说改动画1部！弹丸论破系列正统续作弹丸论破3的“绝望篇”，Key社的视觉小说精华之作星之梦的动画版，元气囝仔的外传作品半田君传说，美术社千奇百怪的学生们带来的这个美术社大有问题等都将在今日放送！
+                    <br/>2016年7月开始播放的动画共计有49部，数量上相比春季略有减少，不过很多万众瞩目的新作和续作都将在这一季播出。不知道追哪个新番好？需要动画推荐的话，来看看日本2016年夏季动画专题吧～！
+                    <br/>在查阅萌娘百科时注意到有错漏的话，就来参与编辑，与我们一同完善萌娘百科吧~！
+<br/>
+                    <br/>阅读更多：https://zh.moegirl.org/Mainpage
+                    <br/>本文引自萌娘百科（https://zh.moegirl.org/），文字内容遵守【知识共享 署名-非商业性使用-相同方式共享 3.0】协议。
+                </p>
+            </div>
         </div>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
     </div>
 {% endblock %}
