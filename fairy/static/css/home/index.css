@@ -6,11 +6,12 @@
     /*绿色#27AE60，蓝色#2D93CA*/
     background-color: #333;
     overflow: hidden;
+    font-family: "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", tahoma, arial, simsun, "宋体";
 }
 
 header h1 {
     font-size: 3em;
-    padding: 55px 0 30px;
+    padding: 40px 0 30px;
     letter-spacing: 2px;
     line-height: 56px;
     color: white;
@@ -23,7 +24,7 @@ header p {
 }
 
 #search-form {
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 #search-form select {
@@ -37,7 +38,7 @@ header p {
 /*************最新连载*************/
 #new-title {
     color:#69606b;
-    font-family: 'Source Sans Light', 'Apple LiSung Light', 'STHeiti Light', 'SimSun', sans-serif;
+
 }
 
 #new-title p {
@@ -97,10 +98,11 @@ header p {
 }
 
 /*************最新连载*************/
-#week {
+footer {
     margin-top: 60px;
     width: 100%;
     height: 100px;
     line-height: 100px;
     background-color: #e3e3e3;
+    font-size: 12px;
 }

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}永恒书屋{% endblock %}
 {% block head %}
-    <link href="/static/css/home/index.css?v=3.15" rel="stylesheet"/>
+    <link href="/static/css/home/index.css?v=0.02" rel="stylesheet"/>
 {% endblock %}
 {% block content %}
     <header>
@@ -39,12 +39,11 @@
         </div>
     </header>
     <div id="main">
-        <div id="new-title" class="container">
-            <h2>
-                今日放送
-            </h2>
-            <p>　　うぷぷぷぷぷ～今天是星期四，一共将有7部新番放送！其中漫改、游戏改、原创动画各2部，小说改动画1部！弹丸论破系列正统续作弹丸论破3的“绝望篇”，Key社的视觉小说精华之作星之梦的动画版，元气囝仔的外传作品半田君传说，美术社千奇百怪的学生们带来的这个美术社大有问题等都将在今日放送！</p>
-            <div class="text-center"><a class="font-red" href="/book/list">更多</a></div>
+        <div id="new-title" class="container text-center">
+            <h2>今日放送</h2>
+            <div class="text-center">
+                <a class="font-red" href="/book/list">更多</a>
+            </div>
         </div>
         <div id="new-content" class="container">
             <div class="row">
@@ -120,12 +119,36 @@
                         <div class="book-list-title-name">伊苏·起源</div>
                     </a>
                 </div>
-            </div>
-        </div>
-        <div id="week">
-            <div class="container text-center">
-                Copyright © 2016-2016 www.fairy.com
+                <div class="new-content-inner col-xs-6 col-lg-3">
+                    <a href="/" class="book-list-title">
+                        <img src="/static/upload/img/07.jpg" alt="..." class="img-responsive">
+                        <div class="book-list-content">
+                            <span class="glyphicon glyphicon-fire float-left book-list-content-icon" aria-hidden="true"
+                                  title="点击数"></span>
+                            <span class="text-left float-left" title="点击数">752</span>
+                            <span class="text-right float-right">2016-7-7</span>
+                        </div>
+                        <div class="book-list-title-name">东京迷城</div>
+                    </a>
+                </div>
+                <div class="new-content-inner col-xs-6 col-lg-3">
+                    <a href="/" class="book-list-title">
+                        <img src="/static/upload/img/08.jpg" alt="..." class="img-responsive">
+                        <div class="book-list-content">
+                            <span class="glyphicon glyphicon-fire float-left book-list-content-icon" aria-hidden="true"
+                                  title="点击数"></span>
+                            <span class="text-left float-left" title="点击数">1917</span>
+                            <span class="text-right float-right">2016-7-7</span>
+                        </div>
+                        <div class="book-list-title-name">刀剑神域</div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
+    <footer>
+        <div class="container text-center">
+            Copyright © 2016-2016 <a href="/">www.fairy.com</a>
+        </div>
+    </footer>
 {% endblock %}
