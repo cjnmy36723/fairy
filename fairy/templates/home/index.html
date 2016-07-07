@@ -21,7 +21,10 @@
                                 <li><img src="/static/upload/img/01.jpg" alt="..." class="img-circle"></li>
                                 <li><a href="/user">{{ g.user.name }}</a></li>
                                 <li>|</li>
-                                <li><a href="/account/logout">注销</a></li>
+                                <li>
+                                    <span class="glyphicon glyphicon-log-out font-fuchsia" aria-hidden="true"></span>
+                                    <a href="/account/logout">注销</a>
+                                </li>
                             </ul>
                         {% else %}
                             <span class="glyphicon glyphicon-user font-yellow" aria-hidden="true"></span>
@@ -68,15 +71,15 @@
     </header>
     <div id="main">
         <div id="new-title" class="container">
-            <h2 class="col-md-5 col-md-offset-4 text-center">
+            <h2 class="col-md-5">
                 <span class="glyphicon glyphicon-send" aria-hidden="true"></span> 最新连载
                 <small>最新入库的作品 | <a href="/">更多</a></small>
             </h2>
         </div>
         {#<hr class="container"/>#}
-        <div id="new-content" class="container-fluid">
+        <div id="new-content" class="container">
             <div class="row">
-                <div class="new-content-inner col-xs-6 col-lg-2">
+                <div class="new-content-inner col-xs-6 col-lg-3">
                     <a href="/" class="book-list-title">
                         <img src="/static/upload/img/01.jpg" alt="..." class="img-responsive">
                         <div class="book-list-content">
@@ -88,7 +91,7 @@
                         <div class="book-list-title-name">Re：从零开始的异世界生活</div>
                     </a>
                 </div>
-                <div class="new-content-inner col-xs-6 col-lg-2">
+                <div class="new-content-inner col-xs-6 col-lg-3">
                     <a href="/" class="book-list-title">
                         <img src="/static/upload/img/02.jpg" alt="..." class="img-responsive">
                         <div class="book-list-content">
@@ -100,7 +103,7 @@
                         <div class="book-list-title-name">约会大作战</div>
                     </a>
                 </div>
-                <div class="new-content-inner col-xs-6 col-lg-2">
+                <div class="new-content-inner col-xs-6 col-lg-3">
                     <a href="/" class="book-list-title">
                         <img src="/static/upload/img/03.jpg" alt="..." class="img-responsive">
                         <div class="book-list-content">
@@ -112,7 +115,7 @@
                         <div class="book-list-title-name">英雄传说：碧之轨迹</div>
                     </a>
                 </div>
-                <div class="new-content-inner col-xs-6 col-lg-2">
+                <div class="new-content-inner col-xs-6 col-lg-3">
                     <a href="/" class="book-list-title">
                         <img src="/static/upload/img/04.jpg" alt="..." class="img-responsive">
                         <div class="book-list-content">
@@ -124,7 +127,7 @@
                         <div class="book-list-title-name">英雄传说：空之轨迹</div>
                     </a>
                 </div>
-                <div class="new-content-inner col-xs-6 col-lg-2">
+                <div class="new-content-inner col-xs-6 col-lg-3">
                     <a href="/" class="book-list-title">
                         <img src="/static/upload/img/05.jpg" alt="..." class="img-responsive">
                         <div class="book-list-content">
@@ -136,7 +139,7 @@
                         <div class="book-list-title-name">英雄传说：闪之轨迹</div>
                     </a>
                 </div>
-                <div class="new-content-inner col-xs-6 col-lg-2">
+                <div class="new-content-inner col-xs-6 col-lg-3">
                     <a href="/" class="book-list-title">
                         <img src="/static/upload/img/06.jpg" alt="..." class="img-responsive">
                         <div class="book-list-content">

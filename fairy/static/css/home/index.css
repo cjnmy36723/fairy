@@ -2,8 +2,9 @@
     margin: 0;
     width: 100%;
     height: 400px;
-    /*background-color: #333;*/ /*绿色#27AE60，蓝色#2D93CA*/
-    background: url("../../img/background-header.jpg") 0px -180px;
+    /*绿色#27AE60，蓝色#2D93CA*/
+    background-color: #333;
+    /*background: url("../../img/background-header.jpg") 0px -180px;*/
     overflow: hidden;
     position: relative;
 }
@@ -14,7 +15,7 @@
 }
 
 header h2 {
-    padding: 80px 0 20px;
+    padding: 55px 0 30px;
     font-size: 3em;
     font-weight: normal;
     letter-spacing: 2px;
@@ -44,7 +45,7 @@ nav {
 }
 
 #search-form {
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .nav-left {
@@ -94,7 +95,9 @@ nav ul li img {
 
 /*************最新连载*************/
 #new-title h2 {
-    font-size: 2em;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 2.3em;
 }
 
 #new-title h2 span {
@@ -117,7 +120,7 @@ nav ul li img {
 }
 
 .new-content-inner {
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .new-content-inner img {
@@ -156,6 +159,6 @@ nav ul li img {
 #week {
     margin-top: 60px;
     width: 100%;
-    height: 600px;
+    height: 578px;
     background-color: #e3e3e3;
 }
