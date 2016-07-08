@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50711
 File Encoding         : 65001
 
-Date: 2016-07-08 08:57:39
+Date: 2016-07-08 16:45:12
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -30,19 +30,23 @@ CREATE TABLE `fb_book` (
   `updateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COMMENT='作品信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='作品信息表';
 
 -- ----------------------------
 -- Records of fb_book
 -- ----------------------------
-INSERT INTO `fb_book` VALUES ('1', 'Re:从零开始的异世界生活', '1111', '', '/static/upload/img/z_01.jpg', '2152013', '0', '2016-06-02 11:24:39', '2016-06-02 11:24:39');
-INSERT INTO `fb_book` VALUES ('2', '约会大作战', '111', '', '/static/upload/img/z_02.jpg', '152051', '0', '2016-07-08 08:52:28', '2016-07-08 08:52:28');
-INSERT INTO `fb_book` VALUES ('3', '英雄传说：碧之轨迹', '111', '', '/static/upload/img/z_03.jpg', '981021', '0', '2016-07-08 08:53:55', '2016-07-08 08:53:55');
-INSERT INTO `fb_book` VALUES ('4', '英雄传说：空之轨迹', '111', '', '/static/upload/img/z_04.jpg', '530216', '0', '2016-07-08 08:54:57', '2016-07-08 08:54:57');
-INSERT INTO `fb_book` VALUES ('5', '英雄传说：闪之轨迹', '111', '', '/static/upload/img/z_05.jpg', '656016', '0', '2016-07-08 08:55:57', '2016-07-08 08:55:57');
-INSERT INTO `fb_book` VALUES ('6', '伊苏·起源', '111', '', '/static/upload/img/z_06.jpg', '1529851', '0', '2016-07-08 08:56:28', '2016-07-08 08:56:28');
-INSERT INTO `fb_book` VALUES ('7', '东京迷城', '111', '', '/static/upload/img/z_07.jpg', '1002153', '0', '2016-07-08 08:57:02', '2016-07-08 08:57:02');
-INSERT INTO `fb_book` VALUES ('8', '刀剑神域', '111', '', '/static/upload/img/z_08.jpg', '3215481', '0', '2016-07-08 08:57:22', '2016-07-08 08:57:22');
+INSERT INTO `fb_book` VALUES ('1', 'Re:从零开始的异世界生活', '1111', '动画,漫画,轻小说', '/static/upload/img/z_01.jpg', '21520130', '5201350', '2016-06-02 11:24:39', '2016-06-02 11:24:39');
+INSERT INTO `fb_book` VALUES ('2', '约会大作战', '111', '动画,漫画,轻小说', '/static/upload/img/z_02.jpg', '152051', '3152', '2016-07-08 08:52:28', '2016-07-08 08:52:28');
+INSERT INTO `fb_book` VALUES ('3', '英雄传说：碧之轨迹', '111', '游戏,PC', '/static/upload/img/z_03.jpg', '981021', '0', '2016-07-08 08:53:55', '2016-07-08 08:53:55');
+INSERT INTO `fb_book` VALUES ('4', '英雄传说：空之轨迹', '111', '游戏,PC', '/static/upload/img/z_04.jpg', '530216', '0', '2016-07-08 08:54:57', '2016-07-08 08:54:57');
+INSERT INTO `fb_book` VALUES ('5', '英雄传说：闪之轨迹', '111', '游戏,PSV,PS4', '/static/upload/img/z_05.jpg', '656016', '0', '2016-07-08 08:55:57', '2016-07-08 08:55:57');
+INSERT INTO `fb_book` VALUES ('6', '伊苏·起源', '111', '游戏,PC', '/static/upload/img/z_06.jpg', '1529851', '0', '2016-07-08 08:56:28', '2016-07-08 08:56:28');
+INSERT INTO `fb_book` VALUES ('7', '东京迷城', '111', '游戏,PSV', '/static/upload/img/z_07.jpg', '1002153', '0', '2016-07-08 08:57:02', '2016-07-08 08:57:02');
+INSERT INTO `fb_book` VALUES ('8', '刀剑神域', '111', '动画,漫画,轻小说', '/static/upload/img/z_08.jpg', '3215481', '0', '2016-07-08 08:57:22', '2016-07-08 08:57:22');
+INSERT INTO `fb_book` VALUES ('9', 'fate stay night', '111', '动画,游戏,轻小说', '/static/upload/img/z_09.jpg', '52021301', '30154200', '2016-07-08 15:58:31', '2016-07-08 15:58:31');
+INSERT INTO `fb_book` VALUES ('10', '天使恋曲', '111', '游戏,PC,GalGame', '/static/upload/img/z_10.jpg', '801201', '630152', '2016-07-08 15:59:21', '2016-07-08 15:59:21');
+INSERT INTO `fb_book` VALUES ('11', '天使协奏曲', '111', '游戏,PC,GalGame', '/static/upload/img/z_11.jpg', '752101', '602013', '2016-07-08 16:00:01', '2016-07-08 16:00:01');
+INSERT INTO `fb_book` VALUES ('12', '神怒之日dies irae', '111', '游戏,PC,GalGame', '/static/upload/img/z_12.jpg', '1222016', '1160153', '2016-07-08 16:16:14', '2016-07-08 16:16:14');
 
 -- ----------------------------
 -- Table structure for fb_novel
@@ -144,9 +148,9 @@ CREATE TABLE `fb_user` (
   `loginTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '登录时间',
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COMMENT='用户信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='用户信息表';
 
 -- ----------------------------
 -- Records of fb_user
 -- ----------------------------
-INSERT INTO `fb_user` VALUES ('1', '1090936693@qq.com', 'e10adc3949ba59abbe56e057f20f883e', '天使之羽', '2016-07-07 16:43:34', '2016-06-01 08:42:41');
+INSERT INTO `fb_user` VALUES ('1', '1090936693@qq.com', 'e10adc3949ba59abbe56e057f20f883e', '天使之羽', '2016-07-08 09:32:48', '2016-06-01 08:42:41');
