@@ -52,18 +52,29 @@ class Book(db.Model, UserMixin):
         self.created = datetime.datetime.now()
 
 
-def get_book_list(page_index, page_size=10):
+def get_book_list(page_index, page_size=10, order_type=0):
     """
     返回作品信息分页集合。
     Args:
         page_index: 页码。
         page_size: 页大小。
+        order_type: 排序类型，0：最新，1：点击数， 2：推荐数。
     Returns:
         作品信息分页集合。
     """
     start_number = (page_index - 1) * page_size
 
-    return db_query('SELECT * FROM %s ORDER BY id DESC LIMIT %s, %s' % (Book.__tablename__, start_number, page_size))
+    order_field = "id"
+
+    if order_type == 1:
+        order_field = "hit"
+
+    if order_type == 2:
+        order_field = "recommend"
+
+    sql = 'SELECT * FROM %s ORDER BY %s DESC LIMIT %s, %s' % (Book.__tablename__, order_field, start_number, page_size)
+
+    return db_query(sql)
 
 
 def get_book(book_id):

@@ -7,6 +7,7 @@ homeRoute = Blueprint('home', __name__, url_prefix='/', template_folder='templat
 
 @homeRoute.route('/')
 def index():
-    items = get_book_list(1, 10)
+    recommend_items = get_book_list(1, 12, 2)
+    new_items = get_book_list(1, 24)
 
-    return render_template('home/index.html', items=items)
+    return render_template('home/index.html', recommend_items=recommend_items, new_items=new_items)

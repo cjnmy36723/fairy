@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}永恒书屋{% endblock %}
 {% block head %}
-    <link href="/static/css/home/index.css?v=0.0.1" rel="stylesheet"/>
+    <link href="/static/css/home/index.css?v=0.0.2" rel="stylesheet"/>
     <link href="/static/css/nav.css?v=0.0.1" rel="stylesheet"/>
     <link href="/static/css/home/new.css?v=0.0.1" rel="stylesheet"/>
 {% endblock %}
@@ -46,28 +46,54 @@
             <p class="description-title">在查阅时注意到有错漏的话，就来参与编辑，与我们一同完善吧！</p>
             <div class="row">
                 <div class="col-sm-6 col-lg-3">
-                    <img src="/static/upload/img/z_01.jpg" alt="..." class="img-circle">
-                    <h4>动漫</h4>
-                    <p class="description-content text-left">今天是星期五，一共将有6部新番放送。</p>
+                    <a href="/" title="动漫">
+                        <img src="/static/upload/img/z_01.jpg" alt="..." class="img-circle">
+                        <h4>动漫</h4>
+                        <p class="description-content text-left">今天是星期五，一共将有6部新番放送。</p>
+                    </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
+                    <a href="/" title="小说">
                     <img src="/static/upload/img/z_02.jpg" alt="..." class="img-circle">
                     <h4>小说</h4>
                     <p class="description-content text-left">今天有 213 部小说更新，可进行查看。</p>
+                        </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
+                    <a href="/" title="人物">
                     <img src="/static/upload/img/z_03.jpg" alt="..." class="img-circle">
                     <h4><b>人物</b></h4>
                     <p class="description-content text-left">今天新加入了 300 个角色资料。</p>
+                        </a>
                 </div>
                 <div class="col-sm-6 col-lg-3">
+                    <a href="/" title="日式轻小说">
                     <img src="/static/upload/img/z_04.jpg" alt="..." class="img-circle">
                     <h4><b>日式轻小说</b></h4>
                     <p class="description-content text-left">今天新加入了 320 部小说。</p>
+                        </a>
                 </div>
             </div>
         </div>
-        <div id="classify" class="container-fluid text-center">1
+        <div id="classify" class="container-fluid text-center">
+            <h3>最多推荐</h3>
+            <div class="row">
+                {% for item in recommend_items %}
+                    <div class="new-content-inner col-xs-6 col-lg-1">
+                        <a href="/book/detail/{{ item.id }}" class="book-list-title" title="{{ item.name }}">
+                            <img src="{{ item.image }}" alt="..." class="img-responsive">
+                            <div class="book-list-content">
+                            <span class="glyphicon glyphicon-thumbs-up float-left book-list-content-icon"
+                                  aria-hidden="true"
+                                  title="推荐数"></span>
+                                <span class="text-left float-left" title="推荐数">{{ item.recommend }}</span>
+                                <span class="text-right float-right">{{ item.created.strftime('%Y-%m-%d') }}</span>
+                            </div>
+                            <div class="book-list-title-name text-left">{{ item.name }}</div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
         <div id="new">
             <div id="new-title" class="container text-center">
@@ -80,9 +106,9 @@
                 <div class="new-menu-list"><a href="/book/list">所有更新</a> | <a href="/">作品更新</a> | <a href="/">业界新闻</a>
                 </div>
                 <div class="row">
-                    {% for item in items %}
+                    {% for item in new_items %}
                         <div class="new-content-inner col-xs-6 col-lg-2">
-                            <a href="/book/detail/{{ item.id }}" class="book-list-title">
+                            <a href="/book/detail/{{ item.id }}" class="book-list-title" title="{{ item.name }}">
                                 <img src="{{ item.image }}" alt="..." class="img-responsive">
                                 <div class="book-list-content">
                             <span class="glyphicon glyphicon-fire float-left book-list-content-icon" aria-hidden="true"

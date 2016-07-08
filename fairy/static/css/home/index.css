@@ -1,4 +1,9 @@
-﻿header {
+﻿h3 {
+    color: #69606b;
+    font-size: 2.0em;
+}
+
+header {
     margin: 0;
     color: white;
     width: 100%;
@@ -39,11 +44,10 @@ header p {
 /*************/
 #description h3 {
     margin-top: 50px;
-    color: #69606b;
-    font-size: 2.0em;
 }
 
 #description h4 {
+    color: #69606b;
     font-weight: bold;
 }
 
@@ -70,14 +74,12 @@ header p {
 /***************分类***************/
 #classify {
     margin-top: 67px;
-    height: 300px;
+    min-height: 300px;
     background-color: #e3e3e3;
-    font-size: 12px;
 }
 
 #classify img {
-    width: 150px;
-    margin-top: 30px;
+    width: 100%;
 }
 
 /***************分类***************/
