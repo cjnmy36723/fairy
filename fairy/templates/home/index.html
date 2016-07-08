@@ -40,109 +40,27 @@
     </header>
     <div id="main">
         <div id="new-title" class="container text-center">
-            <h2>今日放送</h2>
+            <h2>最新入库</h2>
             <div class="text-center">
                 <a class="font-red" href="/book/list">更多</a>
             </div>
         </div>
         <div id="new-content" class="container">
             <div class="row">
-                <div class="new-content-inner col-xs-6 col-lg-3">
-                    <a href="/" class="book-list-title">
-                        <img src="/static/upload/img/01.jpg" alt="..." class="img-responsive">
-                        <div class="book-list-content">
+                {% for item in items %}
+                    <div class="new-content-inner col-xs-6 col-lg-2">
+                        <a href="/book/detail/{{ item.id }}" class="book-list-title">
+                            <img src="{{ item.image }}" alt="..." class="img-responsive">
+                            <div class="book-list-content">
                             <span class="glyphicon glyphicon-fire float-left book-list-content-icon" aria-hidden="true"
                                   title="点击数"></span>
-                            <span class="text-left float-left" title="点击数">300</span>
-                            <span class="text-right float-right">2016-7-6</span>
-                        </div>
-                        <div class="book-list-title-name">Re：从零开始的异世界生活</div>
-                    </a>
-                </div>
-                <div class="new-content-inner col-xs-6 col-lg-3">
-                    <a href="/" class="book-list-title">
-                        <img src="/static/upload/img/02.jpg" alt="..." class="img-responsive">
-                        <div class="book-list-content">
-                            <span class="glyphicon glyphicon-fire float-left book-list-content-icon" aria-hidden="true"
-                                  title="点击数"></span>
-                            <span class="text-left float-left" title="点击数">1000000</span>
-                            <span class="text-right float-right">2016-7-6</span>
-                        </div>
-                        <div class="book-list-title-name">约会大作战</div>
-                    </a>
-                </div>
-                <div class="new-content-inner col-xs-6 col-lg-3">
-                    <a href="/" class="book-list-title">
-                        <img src="/static/upload/img/03.jpg" alt="..." class="img-responsive">
-                        <div class="book-list-content">
-                            <span class="glyphicon glyphicon-fire float-left book-list-content-icon" aria-hidden="true"
-                                  title="点击数"></span>
-                            <span class="text-left float-left" title="点击数">300</span>
-                            <span class="text-right float-right">2016-7-6</span>
-                        </div>
-                        <div class="book-list-title-name">英雄传说：碧之轨迹</div>
-                    </a>
-                </div>
-                <div class="new-content-inner col-xs-6 col-lg-3">
-                    <a href="/" class="book-list-title">
-                        <img src="/static/upload/img/04.jpg" alt="..." class="img-responsive">
-                        <div class="book-list-content">
-                            <span class="glyphicon glyphicon-fire float-left book-list-content-icon" aria-hidden="true"
-                                  title="点击数"></span>
-                            <span class="text-left float-left" title="点击数">300</span>
-                            <span class="text-right float-right">2016-7-6</span>
-                        </div>
-                        <div class="book-list-title-name">英雄传说：空之轨迹</div>
-                    </a>
-                </div>
-                <div class="new-content-inner col-xs-6 col-lg-3">
-                    <a href="/" class="book-list-title">
-                        <img src="/static/upload/img/05.jpg" alt="..." class="img-responsive">
-                        <div class="book-list-content">
-                            <span class="glyphicon glyphicon-fire float-left book-list-content-icon" aria-hidden="true"
-                                  title="点击数"></span>
-                            <span class="text-left float-left" title="点击数">300</span>
-                            <span class="text-right float-right">2016-7-6</span>
-                        </div>
-                        <div class="book-list-title-name">英雄传说：闪之轨迹</div>
-                    </a>
-                </div>
-                <div class="new-content-inner col-xs-6 col-lg-3">
-                    <a href="/" class="book-list-title">
-                        <img src="/static/upload/img/06.jpg" alt="..." class="img-responsive">
-                        <div class="book-list-content">
-                            <span class="glyphicon glyphicon-fire float-left book-list-content-icon" aria-hidden="true"
-                                  title="点击数"></span>
-                            <span class="text-left float-left" title="点击数">300</span>
-                            <span class="text-right float-right">2016-7-6</span>
-                        </div>
-                        <div class="book-list-title-name">伊苏·起源</div>
-                    </a>
-                </div>
-                <div class="new-content-inner col-xs-6 col-lg-3">
-                    <a href="/" class="book-list-title">
-                        <img src="/static/upload/img/07.jpg" alt="..." class="img-responsive">
-                        <div class="book-list-content">
-                            <span class="glyphicon glyphicon-fire float-left book-list-content-icon" aria-hidden="true"
-                                  title="点击数"></span>
-                            <span class="text-left float-left" title="点击数">752</span>
-                            <span class="text-right float-right">2016-7-7</span>
-                        </div>
-                        <div class="book-list-title-name">东京迷城</div>
-                    </a>
-                </div>
-                <div class="new-content-inner col-xs-6 col-lg-3">
-                    <a href="/" class="book-list-title">
-                        <img src="/static/upload/img/08.jpg" alt="..." class="img-responsive">
-                        <div class="book-list-content">
-                            <span class="glyphicon glyphicon-fire float-left book-list-content-icon" aria-hidden="true"
-                                  title="点击数"></span>
-                            <span class="text-left float-left" title="点击数">1917</span>
-                            <span class="text-right float-right">2016-7-7</span>
-                        </div>
-                        <div class="book-list-title-name">刀剑神域</div>
-                    </a>
-                </div>
+                                <span class="text-left float-left" title="点击数">{{ item.hit }}</span>
+                                <span class="text-right float-right">{{ item.created.strftime('%Y-%m-%d') }}</span>
+                            </div>
+                            <div class="book-list-title-name">{{ item.name }}</div>
+                        </a>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>
