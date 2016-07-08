@@ -21,7 +21,15 @@ nav ul li {
 }
 
 nav ul li img {
-    width: 35px;
+    width: 30px;
     height: 35px;
     margin-top: -5px;
+}
+
+.logout-icon {
+    margin-right: 5px;
+}
+
+.login {
+    margin-right: 5px;
 }

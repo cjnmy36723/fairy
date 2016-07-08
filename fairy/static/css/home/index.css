@@ -6,25 +6,26 @@
     /*绿色#27AE60，蓝色#2D93CA*/
     background-color: #333;
     overflow: hidden;
-    font-family: "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", tahoma, arial, simsun, "宋体";
 }
 
 header h1 {
-    font-size: 3em;
+    font-size: 2.4em;
     padding: 40px 0 30px;
     letter-spacing: 2px;
     line-height: 56px;
     color: white;
     text-align: center;
+    font-family: "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", tahoma, arial, simsun, "宋体";
 }
 
 header p {
     text-align: center;
-    font-size: 1.1em;
+    font-size: 0.9em;
+    font-family: "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", tahoma, arial, simsun, "宋体";
 }
 
 #search-form {
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 #search-form select {
@@ -35,74 +36,67 @@ header p {
     margin-top: 14px;
 }
 
-/*************最新连载*************/
-#new-title {
-    color:#69606b;
-
+/*************/
+#description h3 {
+    margin-top: 50px;
+    color: #69606b;
+    font-size: 2.0em;
 }
 
-#new-title p {
-    font-size: 16px;
+#description h4 {
+    font-weight: bold;
 }
 
-#new-title a:hover {
-    color: red;
-    text-decoration: none;
-}
-
-#new-title h2 {
-    margin-top: 40px;
-    margin-bottom: 20px;
-    font-size: 3.0em;
-}
-
-#new-content {
+.description-title {
     margin-top: 10px;
-    border: 0;
-}
-
-.new-content-inner {
-    margin-top: 20px;
-}
-
-.new-content-inner img {
-    width: 100%;
-}
-
-.book-list-title-name {
-    height: 20px;
-    line-height: 20px;
-    overflow: hidden;
-}
-
-.book-list-title {
-    font-size: 12px;
-    color: #000;
-    height: 20px;
-    line-height: 20px;
-    overflow: hidden;
-}
-
-.book-list-content {
-    font-size: 12px;
     color: #999;
-    height: 20px;
-    line-height: 20px;
-    margin-top: 10px;
-    overflow: hidden;
+    font-size: 1em;
 }
 
-.book-list-content-icon {
-    margin-top: 3px;
-    margin-right: 2px;
+.description-content {
+    color: #69606b;
+    width: 150px;
+    margin: 0 auto;
+    font-size: 12px;
 }
 
-/*************最新连载*************/
-footer {
-    margin-top: 60px;
-    width: 100%;
-    height: 100px;
-    line-height: 100px;
+#description img {
+    margin-top: 50px;
+    width: 150px;
+}
+
+/*************/
+
+/***************分类***************/
+#classify {
+    margin-top: 67px;
+    height: 300px;
     background-color: #e3e3e3;
     font-size: 12px;
+}
+
+#classify img {
+    width: 150px;
+    margin-top: 30px;
+}
+
+/***************分类***************/
+
+footer {
+    margin-top: 58px;
+    width: 100%;
+    height: 178px;
+    line-height: 178px;
+    font-size: 12px;
+    color: white;
+    background-color: #333;
+}
+
+footer a {
+    color: white;
+}
+
+footer a:hover {
+    color: white;
+    text-decoration: none;
 }

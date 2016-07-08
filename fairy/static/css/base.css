@@ -1,6 +1,15 @@
-﻿body {
-    /*color: #69606b;
-    font-size: 14px;*/
+﻿body, input, textarea, h1, h2, h3, h4 {
+    font-family: 'Source Sans Light', 'Apple LiSung Light', 'STHeiti Light', 'SimSun', sans-serif;
+    /* Windows 下的非衬线中文字体黑体以及微软雅黑在大字号下都非常难看，无奈选用宋体↑ */
+}
+
+body, input, textarea {
+    line-height: 1.5;
+    font-size: 20px;
+}
+
+h3 {
+    font-weight: bold;
 }
 
 a {
