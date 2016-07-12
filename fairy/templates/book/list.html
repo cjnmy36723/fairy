@@ -1,16 +1,37 @@
 {% extends "base.html" %}
-{% block title %}python flask novel list page{% endblock %}
+{% block title %}资料列表{% endblock %}
 {% block head %}
     <link href="/static/css/nav.css?v=0.0.1" rel="stylesheet"/>
+    <link href="/static/css/book/list.css?v=0.0.1" rel="stylesheet"/>
 {% endblock %}
 {% block content %}
     {% include "nav.html" %}
-    pageIndex:{{ page_index }}<br />
-    {% for item in items %}
-        <a href="/book/detail/{{ item.id }}">{{ item.name }}</a>
-        <br />
-    {% endfor %}
+    <header>
+        <h1 id="title">永恒书屋</h1>
+    </header>
+    <div id="main" class="container">
+        <div class="menu-list"><a href="/book/list">所有信息</a> | <a href="/">最多点击</a> | <a href="/">最多推荐</a>
+        </div>
+        <div class="row">
+            {% for item in items %}
+                <div class="content col-xs-6 col-lg-2">
+                    <a href="/book/detail/{{ item.id }}" class="book-list-title" title="{{ item.name }}">
+                        <img src="{{ item.image }}" alt="..." class="img-responsive">
+                        <div class="book-list-content">
+                            <span class="glyphicon glyphicon-fire float-left book-list-content-icon" aria-hidden="true"
+                                  title="点击数"></span>
+                            <span class="text-left float-left" title="点击数">{{ item.hit }}</span>
+                            <span class="text-right float-right">{{ item.created.strftime('%Y-%m-%d') }}</span>
+                        </div>
+                        <div class="book-list-title-name">{{ item.name }}</div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="text-center">
+            {% include "pager.html" %}
+        </div>
+    </div>
 
-    <br />
-    <a href="/">返回</a>
+    {% include "footer.html" %}
 {% endblock %}

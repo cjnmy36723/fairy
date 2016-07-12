@@ -1,0 +1,30 @@
+<ul class="pagination">
+    {% if pager['page_index'] > 1 %}
+        <li>
+            <a href="{{ pager['url'].replace('{page}', '%s' % pager['prev_page']) }}"
+               aria-label="Previous">
+                <span aria-hidden=\"true\">&laquo;</span>
+            </a>
+        </li>
+    {% endif %}
+
+    {% for index in range(pager['min_page'], pager['max_page'] + 1) %}
+        {% if index == pager['page_index'] %}
+            <li class="active">
+                <a href="javascript:;">{{ index }}</a>
+            </li>
+        {% else %}
+            <li>
+                <a href="{{ pager['url'].replace('{page}', '%s' % index) }}">{{ index }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+
+    {% if pager['page_index'] < pager['total_page_count'] %}
+        <li>
+            <a href="{{ pager['url'].replace('{page}', '%s' % pager['next_page']) }}" aria-label="Next">
+                <span aria-hidden=\"true\">&raquo;</span>
+            </a>
+        </li>
+    {% endif %}
+</ul>

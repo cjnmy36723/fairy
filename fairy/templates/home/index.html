@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}永恒书屋{% endblock %}
+{% block title %}首页{% endblock %}
 {% block head %}
     <link href="/static/css/home/index.css?v=0.0.2" rel="stylesheet"/>
     <link href="/static/css/nav.css?v=0.0.1" rel="stylesheet"/>
@@ -97,13 +97,13 @@
         </div>
         <div id="new">
             <div id="new-title" class="container text-center">
-                <h3>最新入库</h3>
+                <h3>最新动态</h3>
                 <div class="text-center">
                     <a class="font-red" href="/book/list">更多</a>
                 </div>
             </div>
             <div id="new-content" class="container">
-                <div class="new-menu-list"><a href="/book/list">所有更新</a> | <a href="/">作品更新</a> | <a href="/">业界新闻</a>
+                <div class="new-menu-list"><a href="/book/list">所有信息</a> | <a href="/">最多点击</a> | <a href="/">最多推荐</a>
                 </div>
                 <div class="row">
                     {% for item in new_items %}
@@ -124,9 +124,5 @@
             </div>
         </div>
     </div>
-    <footer>
-        <div class="container text-center">
-            Copyright © 2016-2016 <a href="/">www.fairy.com</a>
-        </div>
-    </footer>
+  {% include "footer.html" %}
 {% endblock %}

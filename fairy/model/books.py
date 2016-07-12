@@ -77,6 +77,15 @@ def get_book_list(page_index, page_size=10, order_type=0):
     return db_query(sql)
 
 
+def get_book_list_count():
+    """
+    获得总记录数。
+    Returns:
+        总记录数。
+    """
+    return Book.query.count()
+
+
 def get_book(book_id):
     """
     获得作品详细信息。
