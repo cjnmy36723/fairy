@@ -12,7 +12,8 @@
                     <li><a href="/user">欢迎您，{{ g.user.name }}&nbsp;</a></li>
                     <li>
                         <a href="/account/logout">
-                            <span class="glyphicon glyphicon-log-out font-fuchsia logout-icon" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-log-out font-fuchsia logout-icon"
+                                  aria-hidden="true"></span>
                             注销
                         </a>
                     </li>
@@ -31,11 +32,13 @@
     </nav>
     <header>
         <h1 class="font-red">永恒书屋</h1>
+        {#<p>本站收录了各种宅系作品信息，在查阅资料时注意到有错漏的话，就来参与编辑，与我们一同完善吧！</p>#}
+        {#<small style="font-size: 12px;">本站收录了各种宅系作品信息，在查阅资料时注意到有错漏的话，就来参与编辑，与我们一同完善吧！</small>#}
         <menu>
             <ul>
                 <li><a href="/">首页</a></li>
                 <li><a href="/book/list">作品</a></li>
-                <li><a href="/">排行</a></li>
+                <li><a href="/role/list">人物</a></li>
             </ul>
         </menu>
     </header>
@@ -49,8 +52,8 @@
                             <div class="input-group">
                             <span class="input-group-btn">
                                 <select name="type" class="form-control">
-                                    <option>作品名称</option>
-                                    <option>角色名字</option>
+                                    <option value="0">作品名称</option>
+                                    <option value="1">角色名字</option>
                                 </select>
                             </span>
                                 <input type="text" class="form-control" id="input-search" name="keyword"
@@ -66,7 +69,52 @@
                 </div>
             </div>
         </div>
-        <div id="new-list" class="container">
+        <div class="container" style="margin-top: 20px;">
+            {#<h4 style="margin-bottom: 20px;" class="text-center font-green">欢迎您来到永恒书屋</h4>
+            <p class="text-center">本站收录了各种宅系作品信息，在查阅资料时注意到有错漏的话，就来参与编辑，与我们一同完善吧！</p>#}
+            <div class="row" style="margin-top: 50px;">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="media">
+                        <div class="media-left media-middle">
+                            <a href="#">
+                                <img class="media-object img-rounded" src="/static/upload/img/z_04.jpg" style="width: 150px;">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading"><a href="/">动漫</a></h3>
+                            “动漫”指的是“动画”与“漫画”的简称，这里收录了动漫相关的作品资料。
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="media">
+                        <div class="media-left media-middle">
+                            <a href="#">
+                                <img class="media-object img-circle" src="/static/upload/img/z_11.jpg" style="width: 150px;">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading"><a href="/">人物</a></h3>
+                            这里收录了各种“动画”、“漫画”、“游戏”和“小说”等等作品当中的角色的资料信息。
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="media">
+                        <div class="media-left media-middle">
+                            <a href="#">
+                                <img class="media-object img-rounded" src="/static/upload/img/z_09.jpg" style="width: 150px;">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading"><a href="/">游戏</a></h3>
+                            这里收录了各种游戏的资料。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {#<div id="new-list" class="container fade-in">
             <div><a href="/book/list">所有资料</a> | <a href="/">最多点击</a> | <a href="/">最多推荐</a></div>
             <div class="row">
                 {% for item in new_items %}
@@ -84,7 +132,7 @@
                     </div>
                 {% endfor %}
             </div>
-        </div>
+        </div>#}
     </main>
     <footer>
         <a href="/">www.fairy.com</a>
