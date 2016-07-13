@@ -1,128 +1,92 @@
 {% extends "base.html" %}
 {% block title %}首页{% endblock %}
 {% block head %}
-    <link href="/static/css/home/index.css?v=0.0.2" rel="stylesheet"/>
-    <link href="/static/css/nav.css?v=0.0.1" rel="stylesheet"/>
-    <link href="/static/css/home/new.css?v=0.0.1" rel="stylesheet"/>
+    <link href="/static/css/home/index.css?v=0.0.6" rel="stylesheet"/>
 {% endblock %}
 {% block content %}
-    <header>
-        {% include "nav.html" %}
-        <div class="content">
-            <h1 id="title">永恒书屋</h1>
-            <p>
-                方便地记录照片、文字、音乐、视频，适用于iPhone、iPad和Android移动客户端及PC端，
-                让你随时随地的记录与分享。
-            </p>
+    <nav class="container-fluid">
+        <div class="float-right">
+            {% if g.user and g.user.is_authenticated %}
+                <ul>
+                    <li><a href="/user"><img src="/static/upload/img/z_01.jpg" alt="..." class="img-circle"></a></li>
+                    <li><a href="/user">欢迎您，{{ g.user.name }}&nbsp;</a></li>
+                    <li>
+                        <a href="/account/logout">
+                            <span class="glyphicon glyphicon-log-out font-fuchsia logout-icon" aria-hidden="true"></span>
+                            注销
+                        </a>
+                    </li>
+                </ul>
+            {% else %}
+                <a href="/account/login" class="login">
+                    <span class="glyphicon glyphicon-user font-yellow" aria-hidden="true"></span>
+                    <span class="">登录</span>
+                </a>
+                <a href="/account/register">
+                    <span class="glyphicon glyphicon-pencil font-fuchsia" aria-hidden="true"></span>
+                    <span class="">注册</span>
+                </a>
+            {% endif %}
         </div>
+    </nav>
+    <header>
+        <h1 class="font-red">永恒书屋</h1>
+        <menu>
+            <ul>
+                <li><a href="/">首页</a></li>
+                <li><a href="/book/list">作品</a></li>
+                <li><a href="/">排行</a></li>
+            </ul>
+        </menu>
+    </header>
+    <main>
         <div id="search" class="container">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-8">
-                <form id="search-form" role="search" action="/book/list">
-                    <div class="form-group">
-                        <div class="input-group">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <form id="search-form" role="search" action="/book/list">
+                        <div class="form-group">
+                            <div class="input-group">
                             <span class="input-group-btn">
                                 <select name="type" class="form-control">
                                     <option>作品名称</option>
                                     <option>角色名字</option>
                                 </select>
                             </span>
-                            <input type="text" class="form-control" id="input-search" name="keyword"
-                                   placeholder="请输入搜索内容，例如：Re:从零开始的异世界生活">
+                                <input type="text" class="form-control" id="input-search" name="keyword"
+                                       placeholder="请输入搜索内容，例如：Re:从零开始的异世界生活">
                             <span class="input-group-btn">
                                 <button type="submit" class="btn btn-default" aria-label="Left Align">
                                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                                 </button>
                             </span>
+                            </div>
                         </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </header>
-    <div id="main">
-        <div id="description" class="container text-center">
-            <h3>欢迎您的到来</h3>
-            <p class="description-title">在查阅时注意到有错漏的话，就来参与编辑，与我们一同完善吧！</p>
-            <div class="row">
-                <div class="col-sm-6 col-lg-3">
-                    <a href="/" title="动漫">
-                        <img src="/static/upload/img/z_01.jpg" alt="..." class="img-circle">
-                        <h4>动漫</h4>
-                        <p class="description-content text-left">今天是星期五，一共将有6部新番放送。</p>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <a href="/" title="小说">
-                    <img src="/static/upload/img/z_02.jpg" alt="..." class="img-circle">
-                    <h4>小说</h4>
-                    <p class="description-content text-left">今天有 213 部小说更新，可进行查看。</p>
-                        </a>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <a href="/" title="人物">
-                    <img src="/static/upload/img/z_03.jpg" alt="..." class="img-circle">
-                    <h4><b>人物</b></h4>
-                    <p class="description-content text-left">今天新加入了 300 个角色资料。</p>
-                        </a>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <a href="/" title="日式轻小说">
-                    <img src="/static/upload/img/z_04.jpg" alt="..." class="img-circle">
-                    <h4><b>日式轻小说</b></h4>
-                    <p class="description-content text-left">今天新加入了 320 部小说。</p>
-                        </a>
+                    </form>
                 </div>
             </div>
         </div>
-        <div id="classify" class="container-fluid text-center">
-            <h3>最多推荐</h3>
+        <div id="new-list" class="container">
+            <div><a href="/book/list">所有资料</a> | <a href="/">最多点击</a> | <a href="/">最多推荐</a></div>
             <div class="row">
-                {% for item in recommend_items %}
-                    <div class="new-content-inner col-xs-6 col-lg-1">
-                        <a href="/book/detail/{{ item.id }}" class="book-list-title" title="{{ item.name }}">
+                {% for item in new_items %}
+                    <div class="new-book-container col-xs-6 col-sm-3 col-md-2">
+                        <a href="/book/detail/{{ item.id }}" class="new-book-title" title="{{ item.name }}">
                             <img src="{{ item.image }}" alt="..." class="img-responsive">
-                            <div class="book-list-content">
-                            <span class="glyphicon glyphicon-thumbs-up float-left book-list-content-icon"
-                                  aria-hidden="true"
-                                  title="推荐数"></span>
-                                <span class="text-left float-left" title="推荐数">{{ item.recommend }}</span>
+                            <div class="new-book-main">
+                            <span class="glyphicon glyphicon-fire float-left new-book-icon" aria-hidden="true"
+                                  title="点击数"></span>
+                                <span class="text-left float-left" title="点击数">{{ item.hit }}</span>
                                 <span class="text-right float-right">{{ item.created.strftime('%Y-%m-%d') }}</span>
                             </div>
-                            <div class="book-list-title-name text-left">{{ item.name }}</div>
+                            <div class="new-book-name">{{ item.name }}</div>
                         </a>
                     </div>
                 {% endfor %}
             </div>
         </div>
-        <div id="new">
-            <div id="new-title" class="container text-center">
-                <h3>最新动态</h3>
-                <div class="text-center">
-                    <a class="font-red" href="/book/list">更多</a>
-                </div>
-            </div>
-            <div id="new-content" class="container">
-                <div class="new-menu-list"><a href="/book/list">所有信息</a> | <a href="/">最多点击</a> | <a href="/">最多推荐</a>
-                </div>
-                <div class="row">
-                    {% for item in new_items %}
-                        <div class="new-content-inner col-xs-6 col-lg-2">
-                            <a href="/book/detail/{{ item.id }}" class="book-list-title" title="{{ item.name }}">
-                                <img src="{{ item.image }}" alt="..." class="img-responsive">
-                                <div class="book-list-content">
-                            <span class="glyphicon glyphicon-fire float-left book-list-content-icon" aria-hidden="true"
-                                  title="点击数"></span>
-                                    <span class="text-left float-left" title="点击数">{{ item.hit }}</span>
-                                    <span class="text-right float-right">{{ item.created.strftime('%Y-%m-%d') }}</span>
-                                </div>
-                                <div class="book-list-title-name">{{ item.name }}</div>
-                            </a>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-    </div>
-  {% include "footer.html" %}
+    </main>
+    <footer>
+        <a href="/">www.fairy.com</a>
+    </footer>
 {% endblock %}
