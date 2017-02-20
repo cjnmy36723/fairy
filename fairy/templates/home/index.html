@@ -1,132 +1,48 @@
 {% extends "base.html" %}
-{% block title %}永恒书屋{% endblock %}
+{% block title %}首页{% endblock %}
 {% block head %}
-    <link href="/static/css/home/index.css?v=0.0.2" rel="stylesheet"/>
-    <link href="/static/css/nav.css?v=0.0.1" rel="stylesheet"/>
-    <link href="/static/css/home/new.css?v=0.0.1" rel="stylesheet"/>
+    <link href="/static/css/home/index.css?v=0.0.6" rel="stylesheet"/>
 {% endblock %}
 {% block content %}
     <header>
-        {% include "nav.html" %}
-        <div class="content">
-            <h1 id="title">永恒书屋</h1>
-            <p>
-                方便地记录照片、文字、音乐、视频，适用于iPhone、iPad和Android移动客户端及PC端，
-                让你随时随地的记录与分享。
-            </p>
-        </div>
-        <div id="search" class="container">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-8">
-                <form id="search-form" role="search" action="/book/list">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <select name="type" class="form-control">
-                                    <option>作品名称</option>
-                                    <option>角色名字</option>
-                                </select>
-                            </span>
-                            <input type="text" class="form-control" id="input-search" name="keyword"
-                                   placeholder="请输入搜索内容，例如：Re:从零开始的异世界生活">
-                            <span class="input-group-btn">
-                                <button type="submit" class="btn btn-default" aria-label="Left Align">
-                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                                </button>
-                            </span>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </header>
-    <div id="main">
-        <div id="description" class="container text-center">
-            <h3>欢迎您的到来</h3>
-            <p class="description-title">在查阅时注意到有错漏的话，就来参与编辑，与我们一同完善吧！</p>
-            <div class="row">
-                <div class="col-sm-6 col-lg-3">
-                    <a href="/" title="动漫">
-                        <img src="/static/upload/img/z_01.jpg" alt="..." class="img-circle">
-                        <h4>动漫</h4>
-                        <p class="description-content text-left">今天是星期五，一共将有6部新番放送。</p>
+        <nav class="container-fluid">
+            <div class="float-right">
+                {% if g.user and g.user.is_authenticated %}
+                    <a href="/user">欢迎您，{{ g.user.name }}</a>
+                    |
+                    <a href="/account/logout">注销</a>
+                {% else %}
+                    <a href="/account/login" class="login">
+                        <span class="">登录</span>
                     </a>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <a href="/" title="小说">
-                    <img src="/static/upload/img/z_02.jpg" alt="..." class="img-circle">
-                    <h4>小说</h4>
-                    <p class="description-content text-left">今天有 213 部小说更新，可进行查看。</p>
-                        </a>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <a href="/" title="人物">
-                    <img src="/static/upload/img/z_03.jpg" alt="..." class="img-circle">
-                    <h4><b>人物</b></h4>
-                    <p class="description-content text-left">今天新加入了 300 个角色资料。</p>
-                        </a>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <a href="/" title="日式轻小说">
-                    <img src="/static/upload/img/z_04.jpg" alt="..." class="img-circle">
-                    <h4><b>日式轻小说</b></h4>
-                    <p class="description-content text-left">今天新加入了 320 部小说。</p>
-                        </a>
-                </div>
+                    |
+                    <a href="/account/register">
+                        <span class="">注册</span>
+                    </a>
+                {% endif %}
             </div>
+        </nav>
+        <h1 class="text-center">天使的羽毛</h1>
+        <h4 class="text-center">获得永恒的旅人为了寻找某个重要的“东西”而带著唯一的线索“天使的羽毛”展开了旅行</h4>
+    </header>
+    <main class="container text-center">
+        <div class="col-xs-12 col-sm-3 col-md-4">
+            <img src="/static/upload/img/z_12.jpg" class="img-rounded"/>
+            <h4><b>动画</b></h4>
+            <p class="text-left">　　每天进入我们视野的信息量越来越多，当这些信息内容展现在我们面前的时，最需要做的就是尽可能快的让这些内容被我们理解吸收。</p>
         </div>
-        <div id="classify" class="container-fluid text-center">
-            <h3>最多推荐</h3>
-            <div class="row">
-                {% for item in recommend_items %}
-                    <div class="new-content-inner col-xs-6 col-lg-1">
-                        <a href="/book/detail/{{ item.id }}" class="book-list-title" title="{{ item.name }}">
-                            <img src="{{ item.image }}" alt="..." class="img-responsive">
-                            <div class="book-list-content">
-                            <span class="glyphicon glyphicon-thumbs-up float-left book-list-content-icon"
-                                  aria-hidden="true"
-                                  title="推荐数"></span>
-                                <span class="text-left float-left" title="推荐数">{{ item.recommend }}</span>
-                                <span class="text-right float-right">{{ item.created.strftime('%Y-%m-%d') }}</span>
-                            </div>
-                            <div class="book-list-title-name text-left">{{ item.name }}</div>
-                        </a>
-                    </div>
-                {% endfor %}
-            </div>
+        <div class="col-xs-12 col-sm-3 col-md-4">
+            <img src="/static/upload/img/z_04.jpg" class="img-rounded"/>
+            <h4><b>动画</b></h4>
+            <p class="text-left">　　原来拟物设计里各种复杂线条设计，光影，磨砂质感全部删除，用极简的修饰，或者干脆不用修饰，目的就是突出内容。</p>
         </div>
-        <div id="new">
-            <div id="new-title" class="container text-center">
-                <h3>最新入库</h3>
-                <div class="text-center">
-                    <a class="font-red" href="/book/list">更多</a>
-                </div>
-            </div>
-            <div id="new-content" class="container">
-                <div class="new-menu-list"><a href="/book/list">所有更新</a> | <a href="/">作品更新</a> | <a href="/">业界新闻</a>
-                </div>
-                <div class="row">
-                    {% for item in new_items %}
-                        <div class="new-content-inner col-xs-6 col-lg-2">
-                            <a href="/book/detail/{{ item.id }}" class="book-list-title" title="{{ item.name }}">
-                                <img src="{{ item.image }}" alt="..." class="img-responsive">
-                                <div class="book-list-content">
-                            <span class="glyphicon glyphicon-fire float-left book-list-content-icon" aria-hidden="true"
-                                  title="点击数"></span>
-                                    <span class="text-left float-left" title="点击数">{{ item.hit }}</span>
-                                    <span class="text-right float-right">{{ item.created.strftime('%Y-%m-%d') }}</span>
-                                </div>
-                                <div class="book-list-title-name">{{ item.name }}</div>
-                            </a>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
+        <div class="col-xs-12 col-sm-3 col-md-4">
+            <img src="/static/upload/img/z_08.jpg" class="img-rounded"/>
+            <h4><b>动画</b></h4>
+            <p class="text-left">　　马路上的路牌只用圆圈，方块，箭头等简单的线条组合， 就是为了让司机尽可能在最短时间内理解到交通指示牌的意思是什么。</p>
         </div>
-    </div>
+    </main>
     <footer>
-        <div class="container text-center">
-            Copyright © 2016-2016 <a href="/">www.fairy.com</a>
-        </div>
+        <a href="/">www.fairy.com</a>
     </footer>
 {% endblock %}

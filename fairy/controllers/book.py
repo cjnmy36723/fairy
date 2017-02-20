@@ -1,22 +1,13 @@
 # config=utf-8
 from flask import Blueprint, render_template
 
-from fairy.model.books import get_book_list, get_book
+from fairy.common.collection import get_pager
+from fairy.model.books import get_book_list, get_book_list_count, get_book
 from fairy.model.roles import get_roles_by_book_id
 from fairy.model.novel import get_novels
 
 # 这里的 templates 的路径是该配置所在目录下的 templates 目录。
 bookRoute = Blueprint('book', __name__, url_prefix='/book', template_folder='templates')
-
-
-@bookRoute.route('/')
-@bookRoute.route('/index/')
-def index():
-    """
-    首页
-    """
-
-    return render_template('book/index.html')
 
 
 @bookRoute.route('/list/')
@@ -36,9 +27,14 @@ def book_list(page_index="1"):
     if page_index < 1:
         page_index = 1
 
-    items = get_book_list(page_index, 10)
+    size = 30
+    items = get_book_list(page_index, size)
+    count = get_book_list_count()
 
-    return render_template('book/list.html', page_index=page_index, items=items)
+    pager = get_pager(page_index, size, count, 5)
+    pager['url'] = '/book/list/{page}'
+
+    return render_template('book/list.html', pager=pager, items=items)
 
 
 @bookRoute.route('/detail/<book_id>/')

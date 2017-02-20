@@ -1,4 +1,4 @@
-﻿body, input, textarea, h1, h2, h3, h4 {
+﻿body, input, textarea {
     font-family: 'Source Sans Light', 'Apple LiSung Light', 'STHeiti Light', 'SimSun', sans-serif;
     /* Windows 下的非衬线中文字体黑体以及微软雅黑在大字号下都非常难看，无奈选用宋体↑ */
 }
@@ -8,17 +8,32 @@ body, input, textarea {
     font-size: 20px;
 }
 
-h3 {
-    font-weight: bold;
+h1, h2, h3, h4 {
+    font-family: 微软雅黑, Helvetica;
 }
 
 a {
+    font-size: 12px;
     color: #000;
 }
 
-a:hover {
+a:hover, a:active, a:visited {
     color: #000;
     text-decoration: none;
+}
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 12px;
+}
+
+footer a:hover {
+    text-decoration: none;
+}
+
+.pagination {
+    font-size: 12px;
 }
 
 .font-blue {
@@ -47,4 +62,24 @@ a:hover {
 
 .float-right {
     float: right;
+}
+
+/*淡入效果*/
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0; /*初始状态 透明度为0*/
+    }
+    50% {
+        opacity: 0; /*中间状态 透明度为0*/
+    }
+    100% {
+        opacity: 1; /*结尾状态 透明度为1*/
+    }
+}
+
+.fade-in {
+    -webkit-animation-name: fadeIn; /*动画名称*/
+    -webkit-animation-duration: 1s; /*动画持续时间*/
+    -webkit-animation-iteration-count: 1; /*动画次数*/
+    -webkit-animation-delay: 0s; /*延迟时间*/
 }
