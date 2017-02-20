@@ -1,5 +1,6 @@
 # config=utf-8
 from fairy.app_start import app
+from numpy.random import randn
 
 
 if __name__ == '__main__':
